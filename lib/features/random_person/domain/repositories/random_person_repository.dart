@@ -4,6 +4,6 @@ import '../../../../core/error/failures.dart';
 import '../entities/random_person.dart';
 
 abstract class RandomPersonRepository {
-  Future<Either<Failure, RandomPerson>> getRandomPerson();
+  Future<Either<Failure, RandomPerson>> getRandomPerson(String? seed);
   void deleteRandomPerson();
 }

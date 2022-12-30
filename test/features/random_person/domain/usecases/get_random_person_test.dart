@@ -18,35 +18,34 @@ void main() {
     },
   );
 
-  const tSeed = '56d27f4a53bd5441';
   const RandomPerson tPerson = RandomPerson(
-    nameFirst: 'Eva',
-    nameLast: 'Martin',
-    locationStreet: 'St. Lawrence Ave',
-    locationNumber: 8929,
-    locationCity: 'Burlington',
-    locationState: 'Northwest Territories',
-    locationCountry: 'Canada',
-    email: 'eva.martin@example.com',
-    loginUser: 'yellowpeacock117',
-    loginPassword: 'addison',
-    dateOfBirth: '1992-03-08T15:13:16.688Z',
-    age: 30,
-    phone: 'B72 T90-0888',
-    cell: 'H89 E30-2385',
-    picture: 'https://randomuser.me/api/portraits/med/women/75.jpg',
-    nat: 'CA',
+    nameFirst: 'test',
+    nameLast: 'test',
+    locationStreet: 'test',
+    locationNumber: 123,
+    locationCity: 'test',
+    locationState: 'test',
+    locationCountry: 'test',
+    email: 'test',
+    loginUser: 'test',
+    loginPassword: 'test',
+    dateOfBirth: 'test',
+    age: 123,
+    phone: 'test',
+    cell: 'test',
+    picture: 'test',
+    nat: 'test',
   );
 
   test('should get person from the repository', () async {
     // arrange
-    when(mockRandomPersonRepository.getRandomPerson(any))
+    when(mockRandomPersonRepository.getRandomPerson())
         .thenAnswer((_) async => const Right(tPerson));
     // act
-    final result = await usecase.execute(tSeed);
+    final result = await usecase(NoParams());
     // assert
     expect(result, const Right(tPerson));
-    verify(mockRandomPersonRepository.getRandomPerson(tSeed));
+    verify(mockRandomPersonRepository.getRandomPerson());
     verifyNoMoreInteractions(mockRandomPersonRepository);
   });
 }

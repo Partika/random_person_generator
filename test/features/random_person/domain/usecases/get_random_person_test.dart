@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:tarefa_2/core/usecases/usecase.dart';
 import 'package:tarefa_2/features/random_person/domain/entities/random_person.dart';
 import 'package:tarefa_2/features/random_person/domain/repositories/random_person_repository.dart';
 import 'package:tarefa_2/features/random_person/domain/usecases/get_random_person.dart';

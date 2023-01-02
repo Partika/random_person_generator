@@ -6,7 +6,7 @@ import '../../domain/repositories/person_repository.dart';
 
 class PersonRepositoryImplementation implements PersonRepository {
   @override
-  void deleteRandomPerson() {
+  void deletePerson() {
     // TODO: implement deleteRandomPerson
   }
 

@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Susann",
+        "last": "Meier"
+      },
+      "location": {
+        "street": {
+          "number": 2063,
+          "name": "Bergstraße"
+        },
+        "city": "Kuppenheim",
+        "state": "Hamburg",
+        "country": "Germany",
+        "postcode": 97118,
+        "coordinates": {
+          "latitude": "-47.4034",
+          "longitude": "136.2624"
+        },
+        "timezone": {
+          "offset": "+5:00",
+          "description": "Ekaterinburg, Islamabad, Karachi, Tashkent"
+        }
+      },
+      "email": "susann.meier@example.com",
+      "login": {
+        "uuid": "e9eb3175-f3e3-4d6c-8033-a7ba4b2d1949",
+        "username": "bluemouse517",
+        "password": "chicken",
+        "salt": "o3mZAVIa",
+        "md5": "1dfe3dcd683b15ce2564e81530170539",
+        "sha1": "706f8f73905c42507dbc5675a3ffee4afdefe998",
+        "sha256": "f40983061f52b5f0ffd4e297cb745fa24f81c7d2ef8e7f5cac1d670cb2aedc3c"
+      },
+      "dob": {
+        "date": "1985-03-29T01:39:33.772Z",
+        "age": 37
+      },
+      "registered": {
+        "date": "2015-02-22T15:18:42.703Z",
+        "age": 7
+      },
+      "phone": "0618-0526512",
+      "cell": "0171-5984484",
+      "id": {
+        "name": "SVNR",
+        "value": "44 280385 M 910"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/29.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/29.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/29.jpg"
+      },
+      "nat": "DE"
+    }
+  ],
+  "info": {
+    "seed": "e1330768d7b42e67",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}

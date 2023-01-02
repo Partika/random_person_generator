@@ -25,7 +25,7 @@ class PersonRepositoryImpl implements PersonRepository {
 
   @override
   Future<Either<Failure, Person>> getRandomPerson() {
-    // TODO: implement getRandomPerson
+    networkInfo.isConected;
     throw UnimplementedError();
   }
 }

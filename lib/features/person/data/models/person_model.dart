@@ -35,20 +35,20 @@ class PersonModel extends Person {
 
   factory PersonModel.fromJson(Map<String, dynamic> json) {
     return PersonModel(
-      nameFirst: json['results']['name']['first'],
-      nameLast: json['results']['name']['last'],
-      locationStreet: json['results']['location']['street']['name'],
-      locationNumber: json['results']['location']['street']['number'],
-      locationCity: json['results']['location']['city'],
-      locationState: json['results']['location']['state'],
-      locationCountry: json['results']['location']['country'],
-      email: json['results']['email'],
-      dateOfBirth: json['results']['dob']['date'],
-      age: json['results']['dob']['age'],
-      phone: json['results']['phone'],
-      cell: json['results']['cell'],
-      picture: json['results']['picutre']['medium'],
-      nat: json['results']['nat'],
+      nameFirst: json['results'][0]['name']['first'],
+      nameLast: json['results'][0]['name']['last'],
+      locationStreet: json['results'][0]['location']['street']['name'],
+      locationNumber: json['results'][0]['location']['street']['number'],
+      locationCity: json['results'][0]['location']['city'],
+      locationState: json['results'][0]['location']['state'],
+      locationCountry: json['results'][0]['location']['country'],
+      email: json['results'][0]['email'],
+      dateOfBirth: json['results'][0]['dob']['date'],
+      age: json['results'][0]['dob']['age'],
+      phone: json['results'][0]['phone'],
+      cell: json['results'][0]['cell'],
+      picture: json['results'][0]['picture']['medium'],
+      nat: json['results'][0]['nat'],
     );
   }
 

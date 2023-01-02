@@ -36,4 +36,25 @@ class PersonModel extends Person {
           picture: picture,
           nat: nat,
         );
+
+  factory PersonModel.fromJson(Map<String, dynamic> json) {
+    return PersonModel(
+      nameFirst: json['results']['name']['first'],
+      nameLast: json['results']['name']['last'],
+      locationStreet: json['results']['location']['street']['name'],
+      locationNumber: json['results']['location']['street']['number'],
+      locationCity: json['results']['location']['city'],
+      locationState: json['results']['location']['state'],
+      locationCountry: json['results']['location']['country'],
+      email: json['results']['email'],
+      loginUser: json['results']['login']['username'],
+      loginPassword: json['results']['login']['password'],
+      dateOfBirth: json['results']['dob']['date'],
+      age: json['results']['dob']['age'],
+      phone: json['results']['phone'],
+      cell: json['results']['cell'],
+      picture: json['results']['picutre']['medium'],
+      nat: json['results']['nat'],
+    );
+  }
 }

@@ -51,4 +51,22 @@ class PersonModel extends Person {
       nat: json['results']['nat'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': {'first': nameFirst, 'last': nameLast},
+      'location': {
+        'street': {'name': locationStreet, 'number': locationNumber},
+        'city': locationCity,
+        'state': locationState,
+        'country': locationCountry
+      },
+      'email': email,
+      'dob': {'date': dateOfBirth, 'age': age},
+      'phone': phone,
+      'cell': cell,
+      'picture': picture,
+      'nat': nat
+    };
+  }
 }

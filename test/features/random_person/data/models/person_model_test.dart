@@ -37,11 +37,43 @@ void main() {
       test(
         'should return valid model when reading the JSON',
         () async {
+          // arrange
           final Map<String, dynamic> jsonMap =
               jsonDecode(fixture('person.json'));
-
+          // act
           final result = PersonModel.fromJson(jsonMap);
+          // assert
           expect(result, tPersonModel);
+        },
+      );
+    },
+  );
+
+  group(
+    'toJson',
+    () {
+      test(
+        'should return a JSON map containing the proper data',
+        () async {
+          // act
+          final result = tPersonModel.toJson();
+          // assert
+          final expectedMap = {
+            'name': {'first': 'Test FName', 'last': 'Test LName'},
+            'location': {
+              'street': {'name': 'Test Street', 'number': 123},
+              'city': 'Test City',
+              'state': 'Test State',
+              'country': 'Test Country'
+            },
+            'email': 'Test Email',
+            'dob': {'date': 'Test DoB', 'age': 123},
+            'phone': 'Test Phone',
+            'cell': 'Test Cell',
+            'picture': 'Test Pic Link',
+            'nat': 'Test Nat'
+          };
+          expect(result, expectedMap);
         },
       );
     },

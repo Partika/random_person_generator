@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tarefa_2/core/error/exceptions.dart';
+import 'package:tarefa_2/core/error/failures.dart';
 import 'package:tarefa_2/core/platform/network_info.dart';
 import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
 import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
@@ -145,6 +146,21 @@ void main() {
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getlastPerson());
           expect(result, equals(const Right(tPerson)));
+        },
+      );
+
+      test(
+        'should return cache failure when there is no cached data is present',
+        () async {
+          // arrange
+          when(mockLocalDataSource.getlastPerson())
+              .thenThrow(CacheException('Cache vazia!'));
+          // act
+          final result = await repository.getRandomPerson();
+          // assert
+          verifyZeroInteractions(mockRemoteDataSource);
+          verify(mockLocalDataSource.getlastPerson());
+          expect(result, equals(Left(CacheFailure())));
         },
       );
     },

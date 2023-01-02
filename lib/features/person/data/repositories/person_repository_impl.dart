@@ -34,6 +34,13 @@ class PersonRepositoryImpl implements PersonRepository {
       } on ServerException {
         return Left(ServerFailure());
       }
-    } else {}
+    } else {
+      try {
+        final localPerson = await localDataSource.getlastPerson();
+        return Right(localPerson);
+      } on CacheException {
+        return Left(CacheFailure());
+      }
+    }
   }
 }

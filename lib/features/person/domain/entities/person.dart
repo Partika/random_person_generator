@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class RandomPerson extends Equatable {
+class Person extends Equatable {
   // nome
   final String nameFirst;
   final String nameLast;
@@ -25,7 +25,7 @@ class RandomPerson extends Equatable {
   // naturalidade
   final String nat;
 
-  const RandomPerson({
+  const Person({
     required this.nameFirst,
     required this.nameLast,
     required this.locationStreet,

@@ -2,24 +2,23 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tarefa_2/core/usecases/usecase.dart';
-import 'package:tarefa_2/features/random_person/domain/entities/random_person.dart';
-import 'package:tarefa_2/features/random_person/domain/repositories/random_person_repository.dart';
-import 'package:tarefa_2/features/random_person/domain/usecases/get_random_person.dart';
+import 'package:tarefa_2/features/person/domain/entities/person.dart';
+import 'package:tarefa_2/features/person/domain/repositories/person_repository.dart';
+import 'package:tarefa_2/features/person/domain/usecases/get_random_person.dart';
 
-class MockRandomPersonRepository extends Mock
-    implements RandomPersonRepository {}
+class MockPersonRepository extends Mock implements PersonRepository {}
 
 void main() {
   late GetRandomPerson usecase;
-  late MockRandomPersonRepository mockRandomPersonRepository;
+  late MockPersonRepository mockPersonRepository;
   setUp(
     () {
-      mockRandomPersonRepository = MockRandomPersonRepository();
-      usecase = GetRandomPerson(mockRandomPersonRepository);
+      mockPersonRepository = MockPersonRepository();
+      usecase = GetRandomPerson(mockPersonRepository);
     },
   );
 
-  const RandomPerson tPerson = RandomPerson(
+  const Person tPerson = Person(
     nameFirst: 'test',
     nameLast: 'test',
     locationStreet: 'test',
@@ -40,13 +39,13 @@ void main() {
 
   test('should get person from the repository', () async {
     // arrange
-    when(mockRandomPersonRepository.getRandomPerson())
+    when(mockPersonRepository.getRandomPerson())
         .thenAnswer((_) async => const Right(tPerson));
     // act
     final result = await usecase(NoParams());
     // assert
     expect(result, const Right(tPerson));
-    verify(mockRandomPersonRepository.getRandomPerson());
-    verifyNoMoreInteractions(mockRandomPersonRepository);
+    verify(mockPersonRepository.getRandomPerson());
+    verifyNoMoreInteractions(mockPersonRepository);
   });
 }

@@ -12,8 +12,6 @@ class Person extends Equatable {
   final String locationCountry;
   // email
   final String email;
-  final String loginUser;
-  final String loginPassword;
   // idade
   final String dateOfBirth;
   final int age;
@@ -34,8 +32,6 @@ class Person extends Equatable {
     required this.locationState,
     required this.locationCountry,
     required this.email,
-    required this.loginUser,
-    required this.loginPassword,
     required this.dateOfBirth,
     required this.age,
     required this.phone,
@@ -54,8 +50,6 @@ class Person extends Equatable {
         locationState,
         locationCountry,
         email,
-        loginUser,
-        loginPassword,
         dateOfBirth,
         age,
         phone,

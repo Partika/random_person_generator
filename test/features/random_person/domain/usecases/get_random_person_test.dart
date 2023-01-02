@@ -27,8 +27,6 @@ void main() {
     locationState: 'Test State',
     locationCountry: 'Test Country',
     email: 'Test Email',
-    loginUser: 'Test User',
-    loginPassword: 'Test Password',
     dateOfBirth: 'Test DoB',
     age: 123,
     phone: 'Test Phone',

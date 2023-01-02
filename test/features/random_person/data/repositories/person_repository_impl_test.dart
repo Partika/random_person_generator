@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tarefa_2/core/platform/network_info.dart';
@@ -32,35 +33,74 @@ void main() {
     },
   );
 
-  group('getRandomPerson', () {
-    const tPersonModel = PersonModel(
-      nameFirst: 'Test NFirst',
-      nameLast: 'Test NLast',
-      locationStreet: 'Test LStreet',
-      locationNumber: 123,
-      locationCity: 'Test LCity',
-      locationState: 'Test LState',
-      locationCountry: 'Test LCountry',
-      email: 'Test Email',
-      dateOfBirth: 'Test DoB',
-      age: 123,
-      phone: 'Test Phone',
-      cell: 'Test Cell',
-      picture: 'Test Pic Link',
-      nat: 'Test Nat',
-    );
-    const Person tPerson = tPersonModel;
+  group(
+    'getRandomPerson',
+    () {
+      const tPersonModel = PersonModel(
+        nameFirst: 'Test NFirst',
+        nameLast: 'Test NLast',
+        locationStreet: 'Test LStreet',
+        locationNumber: 123,
+        locationCity: 'Test LCity',
+        locationState: 'Test LState',
+        locationCountry: 'Test LCountry',
+        email: 'Test Email',
+        dateOfBirth: 'Test DoB',
+        age: 123,
+        phone: 'Test Phone',
+        cell: 'Test Cell',
+        picture: 'Test Pic Link',
+        nat: 'Test Nat',
+      );
+      const Person tPerson = tPersonModel;
 
-    test(
-      'should check if the device is online',
-      () async {
+      test(
+        'should check if the device is online',
+        () async {
+          // arrange
+          when(mockNetworkInfo.isConected).thenAnswer((_) async => true);
+          // act
+          repository.getRandomPerson();
+          // assert
+          verify(mockNetworkInfo.isConected);
+        },
+      );
+    },
+  );
+
+  group(
+    'device is online',
+    () {
+      setUp(
+        () {
+          when(mockNetworkInfo.isConected).thenAnswer((_) async => true);
+        },
+      );
+
+      test(
+          'should return remote data when the call to remote data source is successful',
+          () async {
         // arrange
-        when(mockNetworkInfo.isConected).thenAnswer((_) async => true);
+        when(mockRemoteDataSource.getRandomPerson())
+            .thenAnswer((_) async => tPersonModel);
         // act
-        repository.getRandomPerson();
+        final result = repository.getRandomPerson();
         // assert
-        verify(mockNetworkInfo.isConected);
-      },
-    );
-  });
+        verify(mockRemoteDataSource.getRandomPerson());
+        expect(result, equals(Right(tPersonModel)));
+        verifyNoMoreInteractions(mockRemoteDataSource);
+      });
+    },
+  );
+
+  group(
+    'device is offline',
+    () {
+      setUp(
+        () {
+          when(mockNetworkInfo.isConected).thenAnswer((_) async => false);
+        },
+      );
+    },
+  );
 }

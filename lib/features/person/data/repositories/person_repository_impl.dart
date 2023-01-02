@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:tarefa_2/core/platform/network_info.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
 
+import '../../../../core/error/exceptions.dart';
 import '../../../../core/error/failures.dart';
+import '../../../../core/platform/network_info.dart';
 import '../../domain/entities/person.dart';
 import '../../domain/repositories/person_repository.dart';
+import '../datasources/person_local_data_source.dart';
+import '../datasources/person_remote_data_source.dart';
 
 class PersonRepositoryImpl implements PersonRepository {
   final PersonRemoteDataSource remoteDataSource;
@@ -25,7 +26,14 @@ class PersonRepositoryImpl implements PersonRepository {
 
   @override
   Future<Either<Failure, Person>> getRandomPerson() async {
-    networkInfo.isConected;
-    return Right(await remoteDataSource.getRandomPerson());
+    if (await networkInfo.isConected) {
+      try {
+        final remotePerson = await remoteDataSource.getRandomPerson();
+        localDataSource.cachePerson(remotePerson);
+        return Right(remotePerson);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {}
   }
 }

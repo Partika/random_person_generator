@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:mockito/annotations.dart';
 import 'package:tarefa_2/core/error/exceptions.dart';
 import 'package:tarefa_2/core/error/failures.dart';
 import 'package:tarefa_2/core/platform/network_info.dart';
@@ -9,23 +10,21 @@ import 'package:tarefa_2/features/person/data/datasources/person_remote_data_sou
 import 'package:tarefa_2/features/person/data/models/person_model.dart';
 import 'package:tarefa_2/features/person/data/repositories/person_repository_impl.dart';
 import 'package:tarefa_2/features/person/domain/entities/person.dart';
+import './person_repository_impl_test.mocks.dart';
 
-class MockRemoteDataSource extends Mock implements PersonRemoteDataSource {}
-
-class MockLocalDataSource extends Mock implements PersonLocalDataSource {}
-
-class MockNetworkInfo extends Mock implements NetworkInfo {}
-
+@GenerateMocks([NetworkInfo])
+@GenerateMocks([PersonRemoteDataSource])
+@GenerateMocks([PersonLocalDataSource])
 void main() {
   late PersonRepositoryImpl repository;
-  late MockRemoteDataSource mockRemoteDataSource;
-  late MockLocalDataSource mockLocalDataSource;
+  late MockPersonRemoteDataSource mockRemoteDataSource;
+  late MockPersonLocalDataSource mockLocalDataSource;
   late MockNetworkInfo mockNetworkInfo;
 
   setUp(
     () {
-      mockRemoteDataSource = MockRemoteDataSource();
-      mockLocalDataSource = MockLocalDataSource();
+      mockRemoteDataSource = MockPersonRemoteDataSource();
+      mockLocalDataSource = MockPersonLocalDataSource();
       mockNetworkInfo = MockNetworkInfo();
       repository = PersonRepositoryImpl(
         remoteDataSource: mockRemoteDataSource,

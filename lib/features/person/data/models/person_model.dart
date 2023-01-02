@@ -1,4 +1,4 @@
-import 'package:tarefa_2/features/person/domain/entities/person.dart';
+import '../../domain/entities/person.dart';
 
 class PersonModel extends Person {
   const PersonModel({

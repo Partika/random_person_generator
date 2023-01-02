@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class RandomPerson extends Equatable {
+class Person extends Equatable {
   // nome
   final String nameFirst;
   final String nameLast;
@@ -12,8 +12,6 @@ class RandomPerson extends Equatable {
   final String locationCountry;
   // email
   final String email;
-  final String loginUser;
-  final String loginPassword;
   // idade
   final String dateOfBirth;
   final int age;
@@ -25,7 +23,7 @@ class RandomPerson extends Equatable {
   // naturalidade
   final String nat;
 
-  const RandomPerson({
+  const Person({
     required this.nameFirst,
     required this.nameLast,
     required this.locationStreet,
@@ -34,8 +32,6 @@ class RandomPerson extends Equatable {
     required this.locationState,
     required this.locationCountry,
     required this.email,
-    required this.loginUser,
-    required this.loginPassword,
     required this.dateOfBirth,
     required this.age,
     required this.phone,
@@ -54,8 +50,6 @@ class RandomPerson extends Equatable {
         locationState,
         locationCountry,
         email,
-        loginUser,
-        loginPassword,
         dateOfBirth,
         age,
         phone,

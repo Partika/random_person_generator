@@ -19,22 +19,22 @@ void main() {
   );
 
   const Person tPerson = Person(
-    nameFirst: 'test',
-    nameLast: 'test',
-    locationStreet: 'test',
+    nameFirst: 'Test FName',
+    nameLast: 'Test LName',
+    locationStreet: 'Test Street',
     locationNumber: 123,
-    locationCity: 'test',
-    locationState: 'test',
-    locationCountry: 'test',
-    email: 'test',
-    loginUser: 'test',
-    loginPassword: 'test',
-    dateOfBirth: 'test',
+    locationCity: 'Test City',
+    locationState: 'Test State',
+    locationCountry: 'Test Country',
+    email: 'Test Email',
+    loginUser: 'Test User',
+    loginPassword: 'Test Password',
+    dateOfBirth: 'Test DoB',
     age: 123,
-    phone: 'test',
-    cell: 'test',
-    picture: 'test',
-    nat: 'test',
+    phone: 'Test Phone',
+    cell: 'Test Cell',
+    picture: 'Test Pic Link',
+    nat: 'Test Nat',
   );
 
   test('should get person from the repository', () async {

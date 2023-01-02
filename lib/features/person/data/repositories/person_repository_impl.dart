@@ -24,8 +24,8 @@ class PersonRepositoryImpl implements PersonRepository {
   }
 
   @override
-  Future<Either<Failure, Person>> getRandomPerson() {
+  Future<Either<Failure, Person>> getRandomPerson() async {
     networkInfo.isConected;
-    throw UnimplementedError();
+    return Right(await remoteDataSource.getRandomPerson());
   }
 }

@@ -33,27 +33,27 @@ void main() {
     },
   );
 
+  const tPersonModel = PersonModel(
+    nameFirst: 'Test NFirst',
+    nameLast: 'Test NLast',
+    locationStreet: 'Test LStreet',
+    locationNumber: 123,
+    locationCity: 'Test LCity',
+    locationState: 'Test LState',
+    locationCountry: 'Test LCountry',
+    email: 'Test Email',
+    dateOfBirth: 'Test DoB',
+    age: 123,
+    phone: 'Test Phone',
+    cell: 'Test Cell',
+    picture: 'Test Pic Link',
+    nat: 'Test Nat',
+  );
+  const Person tPerson = tPersonModel;
+
   group(
     'getRandomPerson',
     () {
-      const tPersonModel = PersonModel(
-        nameFirst: 'Test NFirst',
-        nameLast: 'Test NLast',
-        locationStreet: 'Test LStreet',
-        locationNumber: 123,
-        locationCity: 'Test LCity',
-        locationState: 'Test LState',
-        locationCountry: 'Test LCountry',
-        email: 'Test Email',
-        dateOfBirth: 'Test DoB',
-        age: 123,
-        phone: 'Test Phone',
-        cell: 'Test Cell',
-        picture: 'Test Pic Link',
-        nat: 'Test Nat',
-      );
-      const Person tPerson = tPersonModel;
-
       test(
         'should check if the device is online',
         () async {
@@ -84,10 +84,10 @@ void main() {
         when(mockRemoteDataSource.getRandomPerson())
             .thenAnswer((_) async => tPersonModel);
         // act
-        final result = repository.getRandomPerson();
+        final result = await repository.getRandomPerson();
         // assert
         verify(mockRemoteDataSource.getRandomPerson());
-        expect(result, equals(Right(tPersonModel)));
+        expect(result, equals(const Right(tPersonModel)));
         verifyNoMoreInteractions(mockRemoteDataSource);
       });
     },

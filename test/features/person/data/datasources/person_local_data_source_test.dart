@@ -56,4 +56,37 @@ void main() {
       );
     },
   );
+
+  group(
+    'cachePerson',
+    () {
+      const tPersonModel = PersonModel(
+        nameFirst: 'nameFirst',
+        nameLast: 'nameLast',
+        locationStreet: 'locationStreet',
+        locationNumber: 123,
+        locationCity: 'locationCity',
+        locationState: 'locationState',
+        locationCountry: 'locationCountry',
+        email: 'email',
+        dateOfBirth: 'dateOfBirth',
+        age: 123,
+        phone: 'phone',
+        cell: 'cell',
+        picture: 'picture',
+        nat: 'nat',
+      );
+      test(
+        'should call SharedPreferences to cache the data',
+        () async {
+          // act
+          dataSource.cachePerson(tPersonModel);
+          // assert
+          final expectedJsonString = jsonEncode(tPersonModel.toJson());
+          verify(mockSharedPreferences.setString(
+              cachedPerson, expectedJsonString));
+        },
+      );
+    },
+  );
 }

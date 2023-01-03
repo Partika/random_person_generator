@@ -12,6 +12,13 @@ import 'package:tarefa_2/features/person/data/repositories/person_repository_imp
 import 'package:tarefa_2/features/person/domain/entities/person.dart';
 import './person_repository_impl_test.mocks.dart';
 
+/*
+class MockPersonRemoteDataSource extends Mock
+    implements PersonRemoteDataSource {}
+
+class MockPersonLocalDataSource extends Mock implements PersonLocalDataSource {}
+*/
+
 @GenerateMocks([NetworkInfo, PersonRemoteDataSource, PersonLocalDataSource])
 void main() {
   late PersonRepositoryImpl repository;
@@ -87,8 +94,10 @@ void main() {
         () async {
           // arrange
           when(mockNetworkInfo.isConected).thenAnswer((_) async => true);
+          when(mockRemoteDataSource.getRandomPerson())
+              .thenAnswer((_) async => tPersonModel);
           // act
-          await repository.getRandomPerson();
+          repository.getRandomPerson();
           // assert
           verify(mockNetworkInfo.isConected);
         },
@@ -135,7 +144,7 @@ void main() {
               // assert
               verify(mockRemoteDataSource.getRandomPerson());
               verifyZeroInteractions(mockLocalDataSource);
-              expect(result, equals(const Left(tPersonModel)));
+              expect(result, equals(Left(ServerFailure())));
             },
           );
         },

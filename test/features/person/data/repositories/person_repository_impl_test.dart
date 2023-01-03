@@ -12,9 +12,7 @@ import 'package:tarefa_2/features/person/data/repositories/person_repository_imp
 import 'package:tarefa_2/features/person/domain/entities/person.dart';
 import './person_repository_impl_test.mocks.dart';
 
-@GenerateMocks([NetworkInfo])
-@GenerateMocks([PersonRemoteDataSource])
-@GenerateMocks([PersonLocalDataSource])
+@GenerateMocks([NetworkInfo, PersonRemoteDataSource, PersonLocalDataSource])
 void main() {
   late PersonRepositoryImpl repository;
   late MockPersonRemoteDataSource mockRemoteDataSource;
@@ -90,7 +88,7 @@ void main() {
           // arrange
           when(mockNetworkInfo.isConected).thenAnswer((_) async => true);
           // act
-          repository.getRandomPerson();
+          await repository.getRandomPerson();
           // assert
           verify(mockNetworkInfo.isConected);
         },

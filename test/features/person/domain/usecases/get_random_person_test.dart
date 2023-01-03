@@ -1,13 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:mockito/annotations.dart';
 import 'package:tarefa_2/core/usecases/usecase.dart';
 import 'package:tarefa_2/features/person/domain/entities/person.dart';
 import 'package:tarefa_2/features/person/domain/repositories/person_repository.dart';
 import 'package:tarefa_2/features/person/domain/usecases/get_random_person.dart';
+import './get_random_person_test.mocks.dart';
 
-class MockPersonRepository extends Mock implements PersonRepository {}
-
+@GenerateMocks([PersonRepository])
 void main() {
   late GetRandomPerson usecase;
   late MockPersonRepository mockPersonRepository;

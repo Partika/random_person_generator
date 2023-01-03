@@ -78,7 +78,8 @@ void main() {
       );
       test(
         'should call SharedPreferences to cache the data',
-        () async {
+        () {
+          // só funciona se fazer o SharedPreferences.setString() ser Future<bool>?
           // act
           dataSource.cachePerson(tPersonModel);
           // assert

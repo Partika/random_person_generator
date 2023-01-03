@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "name": {
+        "first": "Test FName",
+        "last": "Test LName"
+      },
+      "location": {
+        "street": {
+          "number": 123,
+          "name": "Test Street"
+        },
+        "city": "Test City",
+        "state": "Test State",
+        "country": "Test Country"
+      },
+      "email": "Test Email",
+      "dob": {
+        "date": "Test DoB",
+        "age": 123
+      },
+      "phone": "Test Phone",
+      "cell": "Test Cell",
+      "picture": {
+        "medium": "Test Pic Link"
+      },
+      "nat": "Test Nat"
+    }
+  ]
+}

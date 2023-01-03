@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tarefa_2/core/error/exceptions.dart';
+
 import '../models/person_model.dart';
 
 abstract class PersonLocalDataSource {
@@ -8,4 +12,31 @@ abstract class PersonLocalDataSource {
   Future<PersonModel> getlastPerson();
 
   Future<void> cachePerson(PersonModel personToCache);
+}
+
+const cachedPerson = 'CACHED_PERSON';
+
+class PersonLocalDataSourceImpl implements PersonLocalDataSource {
+  final SharedPreferences sharedPreferences;
+
+  PersonLocalDataSourceImpl({required this.sharedPreferences});
+
+  @override
+  Future<PersonModel> getlastPerson() {
+    final jsonString = sharedPreferences.getString(cachedPerson);
+    if (jsonString != null) {
+      return Future.value(PersonModel.fromJson(jsonDecode(jsonString)));
+    } else {
+      throw CacheException('Não tem nada na cache!');
+    }
+  }
+
+  @override
+  Future cachePerson(PersonModel personToCache) {
+    sharedPreferences.setString(
+      cachedPerson,
+      jsonEncode(personToCache.toJson()),
+    );
+    return Future.value();
+  }
 }

@@ -7,6 +7,7 @@ abstract class NetworkInfo {
 class NetworkInfoImpl implements NetworkInfo {
   @override
   Future<bool> get isConected async {
+    // TODO: decidir se será utilizado connectivity_plus ou o jeito que está aqui
     try {
       final result = await InternetAddress.lookup('google.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {

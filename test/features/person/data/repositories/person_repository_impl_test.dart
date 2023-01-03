@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:tarefa_2/core/error/exceptions.dart';
 import 'package:tarefa_2/core/error/failures.dart';
-import 'package:tarefa_2/core/platform/network_info.dart';
+import 'package:tarefa_2/core/network/network_info.dart';
 import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
 import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
 import 'package:tarefa_2/features/person/data/models/person_model.dart';

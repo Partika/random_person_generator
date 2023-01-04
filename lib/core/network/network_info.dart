@@ -1,22 +1,19 @@
+import 'dart:async';
 import 'dart:io';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 abstract class NetworkInfo {
   Future<bool> get isConected;
 }
 
 class NetworkInfoImpl implements NetworkInfo {
+  final InternetConnectionChecker connectionChecker;
+
+  NetworkInfoImpl(this.connectionChecker);
+
+  // TODO: utilizar connectivity_plus
   @override
-  Future<bool> get isConected async {
-    // TODO: utilizar connectivity_plus
-    try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return Future.value(true);
-      } else {
-        return Future.value(false);
-      }
-    } on SocketException catch (_) {
-      return Future.value(false);
-    }
-  }
+  Future<bool> get isConected => connectionChecker.hasConnection;
 }

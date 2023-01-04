@@ -32,11 +32,11 @@ class PersonLocalDataSourceImpl implements PersonLocalDataSource {
   }
 
   @override
-  Future cachePerson(PersonModel personToCache) {
+  Future<void> cachePerson(PersonModel personToCache) {
     sharedPreferences.setString(
       cachedPerson,
       jsonEncode(personToCache.toJson()),
     );
-    return Future.value();
+    return Future<void>.value();
   }
 }

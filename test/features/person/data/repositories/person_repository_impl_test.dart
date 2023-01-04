@@ -1,7 +1,7 @@
-// import 'package:mockito/annotations.dart';
-// import 'package:tarefa_2/core/network/network_info.dart';
-// import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
-// import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
+import 'package:mockito/annotations.dart';
+import 'package:tarefa_2/core/network/network_info.dart';
+import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
+import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -19,7 +19,7 @@ class MockPersonRemoteDataSource extends Mock
 class MockPersonLocalDataSource extends Mock implements PersonLocalDataSource {}
 */
 
-// @GenerateMocks([NetworkInfo, PersonRemoteDataSource, PersonLocalDataSource])
+@GenerateMocks([NetworkInfo, PersonRemoteDataSource, PersonLocalDataSource])
 void main() {
   late PersonRepositoryImpl repository;
   late MockPersonRemoteDataSource mockRemoteDataSource;

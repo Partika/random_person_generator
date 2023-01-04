@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tarefa_2/core/error/exceptions.dart';
@@ -8,9 +9,11 @@ import 'package:tarefa_2/features/person/data/datasources/person_local_data_sour
 import 'package:tarefa_2/features/person/data/models/person_model.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
+import 'person_local_data_source_test.mocks.dart';
 
-class MockSharedPreferences extends Mock implements SharedPreferences {}
+//class MockSharedPreferences extends Mock implements SharedPreferences {}
 
+@GenerateMocks([SharedPreferences])
 void main() {
   late PersonLocalDataSourceImpl dataSource;
   late MockSharedPreferences mockSharedPreferences;
@@ -77,14 +80,18 @@ void main() {
       );
       test(
         'should call SharedPreferences to cache the data',
-        () {
-          // só funciona se fazer o SharedPreferences.setString() ser Future<bool>?
+        () async {
+          final expectedJsonString = jsonEncode(tPersonModel.toJson());
+          when(mockSharedPreferences.setString(
+                  cachedPerson, expectedJsonString))
+              .thenAnswer((_) async => true);
           // act
           dataSource.cachePerson(tPersonModel);
           // assert
-          final expectedJsonString = jsonEncode(tPersonModel.toJson());
           verify(mockSharedPreferences.setString(
-              cachedPerson, expectedJsonString));
+            cachedPerson,
+            expectedJsonString,
+          ));
         },
       );
     },

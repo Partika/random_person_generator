@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:tarefa_2/core/error/exceptions.dart';
 
 import 'package:tarefa_2/features/person/data/models/person_model.dart';
@@ -13,16 +13,15 @@ abstract class PersonRemoteDataSource {
 }
 
 class PersonRemoteDataSourceImpl implements PersonRemoteDataSource {
-  final http.Client client;
-  final url = Uri(scheme: 'https', host: 'randomuser.me', path: '/api/');
+  final Dio dio;
 
-  PersonRemoteDataSourceImpl({required this.client});
+  PersonRemoteDataSourceImpl({required this.dio});
 
   @override
   Future<PersonModel> getRandomPerson() async {
-    final response = await client.get(url);
+    var response = await dio.get('https://randomuser.me/api/');
     if (response.statusCode == 200) {
-      return PersonModel.fromJson(jsonDecode(response.body));
+      return PersonModel.fromJson(jsonDecode(response.data));
     } else {
       throw ServerException('Something went wrong');
     }

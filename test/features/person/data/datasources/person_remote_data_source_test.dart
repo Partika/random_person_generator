@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:http/http.dart' as http;
 import 'package:tarefa_2/core/error/exceptions.dart';
 import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
 import 'package:tarefa_2/features/person/data/models/person_model.dart';
@@ -12,24 +11,28 @@ import 'package:tarefa_2/features/person/data/models/person_model.dart';
 import '../../../../fixtures/fixture_reader.dart';
 import 'person_remote_data_source_test.mocks.dart';
 
-@GenerateMocks([Dio, http.Client])
+@GenerateMocks([Dio])
 void main() {
   late PersonRemoteDataSourceImpl dataSource;
-  late MockClient mockHttpClient;
+  late MockDio mockDio;
 
   setUp(() {
-    mockHttpClient = MockClient();
-    dataSource = PersonRemoteDataSourceImpl(client: mockHttpClient);
+    mockDio = MockDio();
+    dataSource = PersonRemoteDataSourceImpl(dio: mockDio);
   });
 
   void setUpMockHttpClientSucces200() {
-    when(mockHttpClient.get(any))
-        .thenAnswer((_) async => http.Response(fixture('person.json'), 200));
+    when(mockDio.get(any)).thenAnswer((_) async => Response(
+        data: fixture('person.json'),
+        requestOptions: RequestOptions(path: ''),
+        statusCode: 200));
   }
 
   void setUpMockHttpClientFailure404() {
-    when(mockHttpClient.get(any))
-        .thenAnswer((_) async => http.Response('Something went wrong', 404));
+    when(mockDio.get(any)).thenAnswer((_) async => Response(
+        requestOptions: RequestOptions(path: ''),
+        statusCode: 404,
+        statusMessage: 'Something went wrong'));
   }
 
   group('getRandomPerson', () {
@@ -43,8 +46,7 @@ void main() {
         // act
         dataSource.getRandomPerson();
         // assert
-        verify(mockHttpClient
-            .get(Uri(scheme: 'https', host: 'randomuser.me', path: '/api/')));
+        verify(mockDio.get('https://randomuser.me/api/'));
       },
     );
     test(

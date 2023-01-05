@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:tarefa_2/core/error/failures.dart';
-import 'package:tarefa_2/core/usecases/usecase.dart';
-import 'package:tarefa_2/features/person/domain/entities/person.dart';
-import 'package:tarefa_2/features/person/domain/usecases/get_random_person.dart';
+
+import '../../../../../core/error/failures.dart';
+import '../../../../../core/usecases/usecase.dart';
+import '../../../domain/entities/person.dart';
+import '../../../domain/usecases/get_random_person.dart';
 
 part 'person_event.dart';
 part 'person_state.dart';

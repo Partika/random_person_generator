@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../injection_container.dart';
 import '../bloc/person/person_bloc.dart';
-import 'package:tarefa_2/features/person/presentation/widgets/widgets.dart';
+import '../widgets/widgets.dart';
 
 class PersonPage extends StatelessWidget {
   const PersonPage({Key? key}) : super(key: key);
@@ -49,29 +49,5 @@ class PersonPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class TriviaControls extends StatelessWidget {
-  const TriviaControls({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () => addRandom(context),
-            child: const Text('Nova Pessoa'),
-          ),
-        ),
-      ],
-    );
-  }
-
-  void addRandom(BuildContext context) {
-    BlocProvider.of<PersonBloc>(context).add(GetRandomPersonEvent());
   }
 }

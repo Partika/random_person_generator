@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tarefa_2/features/person/presentation/pages/person_page.dart';
 import 'injection_container.dart' as di;
 
-void main() {
-  di.init();
+void main() async {
+  await di.init();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

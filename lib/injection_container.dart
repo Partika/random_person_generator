@@ -14,7 +14,7 @@ import 'features/person/presentation/bloc/person/person_bloc.dart';
 // service locator
 final sl = GetIt.instance;
 
-void init() {
+Future<void> init() async {
   // Features - Person
   //    Bloc
   sl.registerFactory(() => PersonBloc(random: sl()));

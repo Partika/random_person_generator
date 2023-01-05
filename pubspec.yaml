@@ -23,20 +23,20 @@ dependencies:
   # Remote API
   internet_connection_checker: 0.0.1+3
   connectivity_plus: 2.3.9
+  dio: 4.0.6
   http: 0.13.5
   # Local cache
   shared_preferences: 2.0.15
 
   
-  bloc_test: ^9.1.0
 
   cupertino_icons: ^1.0.2
-  dio: 4.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  bloc_test: ^9.1.0
   mockito: 5.2.0
   build_runner: 2.2.0
   flutter_lints: ^1.0.4

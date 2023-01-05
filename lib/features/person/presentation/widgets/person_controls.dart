@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/person/person_bloc.dart';
 
-class TriviaControls extends StatelessWidget {
-  const TriviaControls({
+class PersonControls extends StatelessWidget {
+  const PersonControls({
     Key? key,
   }) : super(key: key);
 
@@ -12,11 +12,9 @@ class TriviaControls extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () => addRandom(context),
-            child: const Text('Nova Pessoa'),
-          ),
+        ElevatedButton(
+          onPressed: () => addRandom(context),
+          child: const Text('Nova Pessoa'),
         ),
       ],
     );

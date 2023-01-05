@@ -15,6 +15,11 @@ import 'features/person/presentation/bloc/person/person_bloc.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  // External
+  sl.registerSingletonAsync(() async => await SharedPreferences.getInstance());
+  sl.registerLazySingleton(() => Dio());
+  sl.registerLazySingleton(() => InternetConnectionChecker());
+
   // Features - Person
   //    Bloc
   sl.registerFactory(() => PersonBloc(random: sl()));
@@ -34,10 +39,4 @@ Future<void> init() async {
 
   // Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
-
-  // External
-  sl.registerLazySingletonAsync(
-      () async => await SharedPreferences.getInstance());
-  sl.registerLazySingleton(() => Dio());
-  sl.registerLazySingleton(() => InternetConnectionChecker());
 }

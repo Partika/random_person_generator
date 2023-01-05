@@ -14,12 +14,12 @@ class PersonPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Pessoa Aleatoria'),
       ),
-      body: buildBody(context),
+      body: SingleChildScrollView(child: buildBody(context)),
     );
   }
 
   BlocProvider<PersonBloc> buildBody(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<PersonBloc>(
       create: (context) => sl<PersonBloc>(),
       child: Center(
         child: Padding(
@@ -43,31 +43,35 @@ class PersonPage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20.0),
-              Column(
-                children: <Widget>[
-                  const Placeholder(
-                    fallbackHeight: 40,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: const <Widget>[
-                      Expanded(
-                        child: Placeholder(fallbackHeight: 30),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: Placeholder(fallbackHeight: 30),
-                      ),
-                    ],
-                  ),
-                ],
-              )
+              const TriviaControls(),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class TriviaControls extends StatelessWidget {
+  const TriviaControls({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: ElevatedButton(
+            onPressed: () => addRandom(context),
+            child: const Text('Nova Pessoa'),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void addRandom(BuildContext context) {
+    BlocProvider.of<PersonBloc>(context).add(GetRandomPersonEvent());
   }
 }

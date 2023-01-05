@@ -21,7 +21,7 @@ class PersonRemoteDataSourceImpl implements PersonRemoteDataSource {
   Future<PersonModel> getRandomPerson() async {
     var response = await dio.get('https://randomuser.me/api/');
     if (response.statusCode == 200) {
-      return PersonModel.fromJson(jsonDecode(response.data));
+      return PersonModel.fromJson(response.data);
     } else {
       throw ServerException('Something went wrong');
     }

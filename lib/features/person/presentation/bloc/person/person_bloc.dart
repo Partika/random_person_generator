@@ -21,7 +21,7 @@ class PersonBloc extends Bloc<PersonEvent, PersonState> {
       if (event is GetRandomPersonEvent) {
         emit(LoadingState());
         final failureOrPerson = await getRandomPerson(NoParams());
-        failureOrPerson.fold(
+        return failureOrPerson.fold(
           (failure) => emit(ErrorState(message: _mapFailureToMessage(failure))),
           (person) => emit(LoadedState(person: person)),
         );

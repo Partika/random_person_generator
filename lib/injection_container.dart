@@ -14,7 +14,7 @@ import 'features/person/presentation/bloc/person/person_bloc.dart';
 // service locator
 final sl = GetIt.instance;
 
-void init() {
+Future<void> init() async {
   // Features - Person
   //    Bloc
   sl.registerFactory(() => PersonBloc(random: sl()));
@@ -36,8 +36,7 @@ void init() {
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   // External
-  sl.registerLazySingletonAsync(
-      () async => await SharedPreferences.getInstance());
+  sl.registerSingletonAsync(() => SharedPreferences.getInstance());
   sl.registerLazySingleton(() => Dio());
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }

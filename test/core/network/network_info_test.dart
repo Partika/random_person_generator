@@ -20,9 +20,6 @@ void main() {
   group(
     'isConnected',
     () {
-      // TODO: descobrir a diferença entre:
-      // Expected: <Instance of 'Future<bool>'>
-      // Actual: <Instance of 'Future<bool>'>
       test(
         'should forward the call to DataConnectionChecker.hasConnection',
         () async {

@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../injection_container.dart';
 import '../bloc/person/person_bloc.dart';
-import '../widgets/loading_widget.dart';
-import '../widgets/message_display.dart';
-import '../widgets/person_display.dart';
+import 'package:tarefa_2/features/person/presentation/widgets/widgets.dart';
 
 class PersonPage extends StatelessWidget {
   const PersonPage({Key? key}) : super(key: key);

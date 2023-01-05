@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tarefa_2/features/person/domain/entities/person.dart';
-import 'package:tarefa_2/features/person/presentation/bloc/person/person_bloc.dart';
-import 'package:tarefa_2/injection_container.dart';
+
+import '../../../../injection_container.dart';
+import '../bloc/person/person_bloc.dart';
+import '../widgets/loading_widget.dart';
+import '../widgets/message_display.dart';
+import '../widgets/person_display.dart';
 
 class PersonPage extends StatelessWidget {
   const PersonPage({Key? key}) : super(key: key);
@@ -65,75 +68,6 @@ class PersonPage extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class MessageDisplay extends StatelessWidget {
-  final String message;
-  const MessageDisplay({
-    Key? key,
-    required this.message,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height / 3,
-      child: Center(
-        child: SingleChildScrollView(
-          child: Text(
-            message,
-            style: const TextStyle(fontSize: 25),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height / 3,
-      child: const CircularProgressIndicator(),
-    );
-  }
-}
-
-class PersonDisplay extends StatelessWidget {
-  final Person person;
-  const PersonDisplay({
-    Key? key,
-    required this.person,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height / 3,
-      child: Expanded(
-        child: Column(
-          children: <Widget>[
-            Text(
-              person.nameFirst + ' ' + person.nameLast,
-              style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-            ),
-            SingleChildScrollView(
-              child: Text(
-                // TODO: resto das informacoes
-                person.phone,
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
         ),
       ),
     );

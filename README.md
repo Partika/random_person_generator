@@ -28,8 +28,8 @@ para realizar testes com os BLoC's.
 - [Dartz](https://pub.dev/packages/dartz),
 para tratar falhas com utilização de Either para tipos.
 - [Equatable](https://pub.dev/packages/equatable),
-para poder saber o grau de igualdade de classes
-sem se basear se são a mesma instância. Para
-comparar seus atributos.
+para poder saber o grau de igualdade de classes,
+sem se basear em igualdade de instância, mas em
+igualdade de atributos.
 
 

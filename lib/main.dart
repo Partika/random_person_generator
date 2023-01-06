@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_person_generator/features/person/presentation/pages/dashboard_page.dart';
 import 'package:random_person_generator/features/person/presentation/pages/person_page.dart';
 import 'injection_container.dart' as di;
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black,
       ),
-      home: const PersonPage(),
+      // home: const PersonPage(),
+      home: const DashboardPage(),
     );
   }
 }

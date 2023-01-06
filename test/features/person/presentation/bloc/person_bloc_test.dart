@@ -3,11 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:tarefa_2/core/error/failures.dart';
-import 'package:tarefa_2/core/usecases/usecase.dart';
-import 'package:tarefa_2/features/person/domain/entities/person.dart';
-import 'package:tarefa_2/features/person/domain/usecases/get_random_person.dart';
-import 'package:tarefa_2/features/person/presentation/bloc/person/person_bloc.dart';
+import 'package:random_person_generator/core/error/failures.dart';
+import 'package:random_person_generator/core/usecases/usecase.dart';
+import 'package:random_person_generator/features/person/domain/entities/person.dart';
+import 'package:random_person_generator/features/person/domain/usecases/get_random_person.dart';
+import 'package:random_person_generator/features/person/presentation/bloc/person/person_bloc.dart';
 
 import 'person_bloc_test.mocks.dart';
 

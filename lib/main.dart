@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tarefa_2/features/person/presentation/pages/person_page.dart';
+import 'package:random_person_generator/features/person/presentation/pages/person_page.dart';
 import 'injection_container.dart' as di;
 
 void main() async {

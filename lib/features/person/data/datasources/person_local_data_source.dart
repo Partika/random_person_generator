@@ -1,6 +1,7 @@
 import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
 
 import '../models/person_model.dart';
 

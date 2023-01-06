@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tarefa_2/features/person/data/models/person_model.dart';
-import 'package:tarefa_2/features/person/domain/entities/person.dart';
+import 'package:random_person_generator/features/person/data/models/person_model.dart';
+import 'package:random_person_generator/features/person/domain/entities/person.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 

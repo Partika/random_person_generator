@@ -4,9 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
-import 'package:tarefa_2/features/person/data/models/person_model.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
+import 'package:random_person_generator/features/person/data/datasources/person_local_data_source.dart';
+import 'package:random_person_generator/features/person/data/models/person_model.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 import 'person_local_data_source_test.mocks.dart';

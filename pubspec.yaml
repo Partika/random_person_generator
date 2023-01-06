@@ -1,4 +1,4 @@
-name: gerador_de_pessoas_aleatorias
+name: random_person_generator
 description: Aplicacao para obtencao de pessoa aleatoria da API.
 
 publish_to: 'none'

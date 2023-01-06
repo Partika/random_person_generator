@@ -1,5 +1,5 @@
-name: tarefa_2
-description: A new Flutter project.
+name: gerador_de_pessoas_aleatorias
+description: Aplicacao para obtencao de pessoa aleatoria da API.
 
 publish_to: 'none'
 
@@ -22,13 +22,9 @@ dependencies:
   dartz: 0.10.1
   # Remote API
   internet_connection_checker: 0.0.1+3
-  connectivity_plus: 2.3.9
   dio: 4.0.6
-  http: 0.13.5
   # Local cache
   shared_preferences: 2.0.15
-
-  
 
   cupertino_icons: ^1.0.2
 
@@ -42,5 +38,4 @@ dev_dependencies:
   flutter_lints: ^1.0.4
 
 flutter:
-
   uses-material-design: true

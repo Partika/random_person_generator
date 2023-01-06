@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Random Person App',
       theme: ThemeData(
-        primaryColor: Colors.black,
+        backgroundColor: const Color(0xFFF6F6F6),
       ),
       // home: const PersonPage(),
       home: const DashboardPage(),

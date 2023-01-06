@@ -6,24 +6,94 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: const Text('Pessoa Aleatoria'),
+      // ),
+      body: SingleChildScrollView(child: buildBody(context)),
+    );
   }
 
   Widget buildBody(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
         Container(
           alignment: Alignment.bottomCenter,
-          height: size.height,
-          width: size.width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: const RiveAnimation.asset(
-            'assets/background.riv',
+            'assets/animations/background.riv',
             fit: BoxFit.fill,
           ),
         ),
-        //RESTO DO BODY
+        Positioned(
+          top: 25,
+          child: Container(
+            alignment: Alignment.topCenter,
+            child: const Text(
+              'FAKE PROFILE',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                fontFamily: 'Inter',
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 120,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ButtonStyle(
+              backgroundColor: MaterialStateColor.resolveWith(
+                  (states) => const Color(0xFFFFFDD5)),
+            ),
+            child: Column(
+              children: <Widget>[
+                const Padding(padding: EdgeInsets.only(top: 5)),
+                Row(
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: SizedBox.fromSize(
+                        size: const Size.fromRadius(60),
+                        child: const Image(
+                          image: AssetImage('assets/images/local_image.png'),
+                        ),
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(left: 20)),
+                    Column(
+                      children: const <Widget>[
+                        Text(
+                          'GENERATE NEW',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            fontFamily: 'Inter',
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          'USER',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            fontFamily: 'Inter',
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const Padding(padding: EdgeInsets.only(top: 5)),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

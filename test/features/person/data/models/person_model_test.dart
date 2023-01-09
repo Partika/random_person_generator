@@ -71,7 +71,6 @@ void main() {
             'phone': 'Test Phone',
             'cell': 'Test Cell',
             'picture': 'Test Pic Link',
-            'nat': 'Test Nat'
           };
           expect(result, expectedMap);
         },

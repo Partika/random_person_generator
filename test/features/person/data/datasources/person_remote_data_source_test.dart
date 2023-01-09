@@ -23,7 +23,7 @@ void main() {
 
   void setUpMockHttpClientSucces200() {
     when(mockDio.get(any)).thenAnswer((_) async => Response(
-        data: fixture('person.json'),
+        data: jsonDecode(fixture('person.json')),
         requestOptions: RequestOptions(path: ''),
         statusCode: 200));
   }

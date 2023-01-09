@@ -50,47 +50,44 @@ class DashboardPage extends StatelessWidget {
               backgroundColor: MaterialStateColor.resolveWith(
                   (states) => const Color(0xFFFFFDD5)),
             ),
-            child: Column(
-              children: <Widget>[
-                const Padding(padding: EdgeInsets.only(top: 5)),
-                Row(
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: SizedBox.fromSize(
-                        size: const Size.fromRadius(60),
-                        child: const Image(
-                          image: AssetImage('assets/images/local_image.png'),
-                        ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5, bottom: 5),
+              child: Row(
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SizedBox.fromSize(
+                      size: const Size.fromRadius(60),
+                      child: const Image(
+                        image: AssetImage('assets/images/local_image.png'),
                       ),
                     ),
-                    const Padding(padding: EdgeInsets.only(left: 20)),
-                    Column(
-                      children: const <Widget>[
-                        Text(
-                          'GENERATE NEW',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            fontFamily: 'Inter',
-                            color: Colors.black,
-                          ),
+                  ),
+                  const Padding(padding: EdgeInsets.only(left: 20)),
+                  Column(
+                    children: const <Widget>[
+                      Text(
+                        'GENERATE NEW',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          fontFamily: 'Inter',
+                          color: Colors.black,
                         ),
-                        Text(
-                          'USER',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            fontFamily: 'Inter',
-                            color: Colors.black,
-                          ),
+                      ),
+                      Text(
+                        'USER',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          fontFamily: 'Inter',
+                          color: Colors.black,
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-                const Padding(padding: EdgeInsets.only(top: 5)),
-              ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

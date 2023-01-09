@@ -38,7 +38,6 @@ class DashboardPage extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
-                fontFamily: 'Inter',
               ),
             ),
           ),
@@ -48,7 +47,7 @@ class DashboardPage extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PersonPage()));
+                  MaterialPageRoute(builder: (context) => const PersonPage()));
             },
             style: ButtonStyle(
               backgroundColor: MaterialStateColor.resolveWith(
@@ -76,7 +75,6 @@ class DashboardPage extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
-                        fontFamily: 'Inter',
                         color: Colors.black,
                       ),
                     ),

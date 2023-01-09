@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_person_generator/features/person/presentation/pages/person_page.dart';
 import 'package:rive/rive.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -45,7 +46,10 @@ class DashboardPage extends StatelessWidget {
         Positioned(
           top: 120,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PersonPage()));
+            },
             style: ButtonStyle(
               backgroundColor: MaterialStateColor.resolveWith(
                   (states) => const Color(0xFFFFFDD5)),
@@ -64,27 +68,18 @@ class DashboardPage extends StatelessWidget {
                     ),
                   ),
                   const Padding(padding: EdgeInsets.only(left: 20)),
-                  Column(
-                    children: const <Widget>[
-                      Text(
-                        'GENERATE NEW',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          fontFamily: 'Inter',
-                          color: Colors.black,
-                        ),
+                  const SizedBox(
+                    width: 200,
+                    child: Text(
+                      'GENERATE NEW USER',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        fontFamily: 'Inter',
+                        color: Colors.black,
                       ),
-                      Text(
-                        'USER',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          fontFamily: 'Inter',
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),

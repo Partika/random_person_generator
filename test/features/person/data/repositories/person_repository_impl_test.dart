@@ -78,15 +78,15 @@ void main() {
         locationStreet: 'Test LStreet',
         locationNumber: 123,
         locationCity: 'Test LCity',
-        locationState: 'Test LState',
-        locationCountry: 'Test LCountry',
+        locationLatitude: '123',
+        locationLongitude: '123',
         email: 'Test Email',
+        username: 'Test Username',
         dateOfBirth: 'Test DoB',
         age: 123,
         phone: 'Test Phone',
         cell: 'Test Cell',
         picture: 'Test Pic Link',
-        nat: 'Test Nat',
       );
       const Person tPerson = tPersonModel;
       test(

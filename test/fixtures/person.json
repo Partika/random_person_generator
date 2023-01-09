@@ -17,8 +17,8 @@
         "country": "Test Country",
         "postcode": 97118,
         "coordinates": {
-          "latitude": "-47.4034",
-          "longitude": "136.2624"
+          "latitude": "123",
+          "longitude": "123"
         },
         "timezone": {
           "offset": "+5:00",
@@ -28,7 +28,7 @@
       "email": "Test Email",
       "login": {
         "uuid": "e9eb3175-f3e3-4d6c-8033-a7ba4b2d1949",
-        "username": "bluemouse517",
+        "username": "Test Username",
         "password": "chicken",
         "salt": "o3mZAVIa",
         "md5": "1dfe3dcd683b15ce2564e81530170539",

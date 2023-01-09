@@ -8,10 +8,11 @@ class Person extends Equatable {
   final String locationStreet;
   final int locationNumber;
   final String locationCity;
-  final String locationState;
-  final String locationCountry;
+  final String locationLatitude;
+  final String locationLongitude;
   // email
   final String email;
+  final String username;
   // idade
   final String dateOfBirth;
   final int age;
@@ -20,8 +21,6 @@ class Person extends Equatable {
   final String cell;
   // imagem
   final String picture;
-  // naturalidade
-  final String nat;
 
   const Person({
     required this.nameFirst,
@@ -29,15 +28,15 @@ class Person extends Equatable {
     required this.locationStreet,
     required this.locationNumber,
     required this.locationCity,
-    required this.locationState,
-    required this.locationCountry,
+    required this.locationLatitude,
+    required this.locationLongitude,
     required this.email,
+    required this.username,
     required this.dateOfBirth,
     required this.age,
     required this.phone,
     required this.cell,
     required this.picture,
-    required this.nat,
   });
 
   @override
@@ -47,14 +46,13 @@ class Person extends Equatable {
         locationStreet,
         locationNumber,
         locationCity,
-        locationState,
-        locationCountry,
+        locationLatitude,
+        locationLongitude,
         email,
         dateOfBirth,
         age,
         phone,
         cell,
         picture,
-        nat,
       ];
 }

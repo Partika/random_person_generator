@@ -25,15 +25,15 @@ void main() {
     locationStreet: 'Test Street',
     locationNumber: 123,
     locationCity: 'Test City',
-    locationState: 'Test State',
-    locationCountry: 'Test Country',
+    locationLatitude: '123',
+    locationLongitude: '123',
     email: 'Test Email',
+    username: 'Test Username',
     dateOfBirth: 'Test DoB',
     age: 123,
     phone: 'Test Phone',
     cell: 'Test Cell',
     picture: 'Test Pic Link',
-    nat: 'Test Nat',
   );
 
   test('should get person from the repository', () async {

@@ -13,15 +13,15 @@ void main() {
     locationStreet: 'Test Street',
     locationNumber: 123,
     locationCity: 'Test City',
-    locationState: 'Test State',
-    locationCountry: 'Test Country',
+    locationLongitude: '123',
+    locationLatitude: '123',
     email: 'Test Email',
+    username: 'Test Username',
     dateOfBirth: 'Test DoB',
     age: 123,
     phone: 'Test Phone',
     cell: 'Test Cell',
     picture: 'Test Pic Link',
-    nat: 'Test Nat',
   );
 
   test(
@@ -63,10 +63,10 @@ void main() {
             'location': {
               'street': {'name': 'Test Street', 'number': 123},
               'city': 'Test City',
-              'state': 'Test State',
-              'country': 'Test Country'
+              'coordinates': {'latitude': '123', 'longitude': '123'}
             },
             'email': 'Test Email',
+            'login': {'username': 'Test Username'},
             'dob': {'date': 'Test DoB', 'age': 123},
             'phone': 'Test Phone',
             'cell': 'Test Cell',

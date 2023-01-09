@@ -39,15 +39,15 @@ void main() {
       locationStreet: 'locationStreet',
       locationNumber: 123,
       locationCity: 'locationCity',
-      locationState: 'locationState',
-      locationCountry: 'locationCountry',
+      locationLatitude: 'locationState',
+      locationLongitude: 'locationCountry',
       email: 'email',
+      username: 'username',
       dateOfBirth: 'dateOfBirth',
       age: 123,
       phone: 'phone',
       cell: 'cell',
       picture: 'picture',
-      nat: 'nat',
     );
 
     test(

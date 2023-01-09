@@ -11,10 +11,15 @@
           "name": "Test Street"
         },
         "city": "Test City",
-        "state": "Test State",
-        "country": "Test Country"
+        "coordinates": {
+          "latitude": "123",
+          "longitude": "123"
+        }
       },
       "email": "Test Email",
+      "login": {
+        "username": "Test Username"
+      },
       "dob": {
         "date": "Test DoB",
         "age": 123

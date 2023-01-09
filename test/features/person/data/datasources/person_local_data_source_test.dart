@@ -68,15 +68,15 @@ void main() {
         locationStreet: 'locationStreet',
         locationNumber: 123,
         locationCity: 'locationCity',
-        locationState: 'locationState',
-        locationCountry: 'locationCountry',
+        locationLatitude: '123',
+        locationLongitude: '123',
         email: 'email',
+        username: 'username',
         dateOfBirth: 'dateOfBirth',
         age: 123,
         phone: 'phone',
         cell: 'cell',
         picture: 'picture',
-        nat: 'nat',
       );
       test(
         'should call SharedPreferences to cache the data',

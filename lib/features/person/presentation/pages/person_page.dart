@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../injection_container.dart';
+import '../../domain/entities/person.dart';
 import '../bloc/person/person_bloc.dart';
 import '../widgets/widgets.dart';
 
 class PersonPage extends StatelessWidget {
-  const PersonPage({Key? key}) : super(key: key);
+  const PersonPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +19,8 @@ class PersonPage extends StatelessWidget {
   }
 
   BlocProvider<PersonBloc> buildBody(BuildContext context) {
-    return BlocProvider<PersonBloc>(
-      create: (context) => sl<PersonBloc>(),
+    return BlocProvider<PersonBloc>.value(
+      value: BlocProvider.of<PersonBloc>(context),
       child: Center(
         child: Column(
           children: [

@@ -13,9 +13,6 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Pessoa Aleatoria'),
-      // ),
       body: SingleChildScrollView(child: buildBody(context)),
     );
   }
@@ -24,6 +21,7 @@ class DashboardPage extends StatelessWidget {
     // Size size = MediaQuery.of(context).size;
     return BlocProvider<PersonBloc>(
       create: (context) => sl<PersonBloc>(),
+      lazy: false,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -52,12 +50,7 @@ class DashboardPage extends StatelessWidget {
           Positioned(
             top: 120,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const PersonPage()));
-              },
+              onPressed: () => isCacheEmpty(context),
               style: ButtonStyle(
                 backgroundColor: MaterialStateColor.resolveWith(
                     (states) => const Color(0xFFFFFDD5)),
@@ -71,6 +64,26 @@ class DashboardPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void isCacheEmpty(BuildContext context) {
+    BlocListener(
+      listener: (context, state) {
+        if (state is EmptyState) {
+          addRandom(context);
+        }
+      },
+    );
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const PersonPage(),
+      ),
+    );
+  }
+
+  void addRandom(BuildContext context) {
+    BlocProvider.of<PersonBloc>(context).add(GetRandomPersonEvent());
   }
 }
 

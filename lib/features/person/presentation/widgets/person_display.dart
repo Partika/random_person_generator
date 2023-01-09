@@ -13,23 +13,21 @@ class PersonDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 3,
-      child: Expanded(
-        child: Column(
-          children: <Widget>[
-            Text(
-              person.nameFirst + ' ' + person.nameLast,
-              style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+      child: Column(
+        children: <Widget>[
+          Text(
+            person.nameFirst + ' ' + person.nameLast,
+            style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+          ),
+          SingleChildScrollView(
+            child: Text(
+              // TODO: resto das informacoes
+              person.phone,
+              style: const TextStyle(fontSize: 25),
+              textAlign: TextAlign.center,
             ),
-            SingleChildScrollView(
-              child: Text(
-                // TODO: resto das informacoes
-                person.phone,
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

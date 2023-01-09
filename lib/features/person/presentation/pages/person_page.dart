@@ -11,9 +11,6 @@ class PersonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pessoa Aleatoria'),
-      ),
       body: SingleChildScrollView(child: buildBody(context)),
     );
   }
@@ -22,30 +19,43 @@ class PersonPage extends StatelessWidget {
     return BlocProvider<PersonBloc>(
       create: (context) => sl<PersonBloc>(),
       child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 10.0),
-              BlocBuilder<PersonBloc, PersonState>(
-                builder: (context, state) {
-                  if (state is EmptyState) {
-                    return const MessageDisplay(message: 'Nenhuma Pessoa!');
-                  } else if (state is LoadingState) {
-                    return const LoadingWidget();
-                  } else if (state is LoadedState) {
-                    return PersonDisplay(person: state.person);
-                  } else if (state is ErrorState) {
-                    return MessageDisplay(message: state.message);
-                  } else {
-                    return const Text('Algo deu muito errado!');
-                  }
-                },
+        child: Column(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color(0xFF9800F4),
+                  Color(0xFF5E138C),
+                ]),
               ),
-              const SizedBox(height: 20.0),
-              const PersonControls(),
-            ],
-          ),
+              child: const Text('Gradiente'),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  const SizedBox(height: 10.0),
+                  BlocBuilder<PersonBloc, PersonState>(
+                    builder: (context, state) {
+                      if (state is EmptyState) {
+                        return const MessageDisplay(message: 'Nenhuma Pessoa!');
+                      } else if (state is LoadingState) {
+                        return const LoadingWidget();
+                      } else if (state is LoadedState) {
+                        return PersonDisplay(person: state.person);
+                      } else if (state is ErrorState) {
+                        return MessageDisplay(message: state.message);
+                      } else {
+                        return const Text('Algo deu muito errado!');
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 20.0),
+                  const PersonControls(),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

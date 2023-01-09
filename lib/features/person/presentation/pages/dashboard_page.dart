@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:random_person_generator/features/person/domain/entities/person.dart';
 import 'package:rive/rive.dart';
 
 import '../../../../injection_container.dart';
@@ -87,49 +88,13 @@ class IsPersonInCache extends StatelessWidget {
         if (state is EmptyState) {
           return const EmptyCache();
         } else if (state is LoadedState) {
-          return PersonDisplay(person: state.person);
+          return FullCache(person: state.person);
         } else if (state is ErrorState) {
           return MessageDisplay(message: state.message);
         } else {
           return const Text('Algo deu muito errado!');
         }
       },
-    );
-  }
-}
-
-class EmptyCache extends StatelessWidget {
-  const EmptyCache({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: SizedBox.fromSize(
-            size: const Size.fromRadius(60),
-            child: const Image(
-              image: AssetImage('assets/images/local_image.png'),
-            ),
-          ),
-        ),
-        const Padding(padding: EdgeInsets.only(left: 20)),
-        const SizedBox(
-          width: 200,
-          child: Text(
-            'GENERATE NEW USER',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-              color: Colors.black,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

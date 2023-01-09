@@ -17,62 +17,64 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  BlocProvider<PersonBloc> buildBody(BuildContext context) {
+  Stack buildBody(BuildContext context) {
     // Size size = MediaQuery.of(context).size;
-    return BlocProvider<PersonBloc>.value(
-      value: sl<PersonBloc>(),
-      child: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          Container(
-            alignment: Alignment.bottomCenter,
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: const RiveAnimation.asset(
-              'assets/animations/background.riv',
-              fit: BoxFit.fill,
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Container(
+          alignment: Alignment.bottomCenter,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: const RiveAnimation.asset(
+            'assets/animations/background.riv',
+            fit: BoxFit.fill,
+          ),
+        ),
+        Positioned(
+          top: 25,
+          child: Container(
+            alignment: Alignment.topCenter,
+            child: const Text(
+              'FAKE PROFILE',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
             ),
           ),
-          Positioned(
-            top: 25,
-            child: Container(
-              alignment: Alignment.topCenter,
-              child: const Text(
-                'FAKE PROFILE',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
+        ),
+        Positioned(
+          top: 120,
+          child: BlocBuilder<PersonBloc, PersonState>(
+            builder: (context, state) {
+              return ElevatedButton(
+                onPressed: () => isCacheEmpty(context, state),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateColor.resolveWith(
+                      (states) => const Color(0xFFFFFDD5)),
                 ),
-              ),
-            ),
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 5, bottom: 5),
+                  child: IsPersonInCache(),
+                ),
+              );
+            },
           ),
-          Positioned(
-            top: 120,
-            child: ElevatedButton(
-              onPressed: () => isCacheEmpty(context),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateColor.resolveWith(
-                    (states) => const Color(0xFFFFFDD5)),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.only(top: 5, bottom: 5),
-                child: IsPersonInCache(),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
-  void isCacheEmpty(BuildContext context) {
-    BlocListener(
-      listener: (context, state) {
-        if (state is EmptyState) {
-          addRandom(context);
-        }
-      },
-    );
+  void isCacheEmpty(BuildContext context, PersonState state) {
+    if (state is EmptyState) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                title: Text('Criando pessoa.'),
+              ));
+      addRandom(context);
+    }
     Navigator.push(
       context,
       MaterialPageRoute(

@@ -26,15 +26,13 @@ class FullCache extends StatelessWidget {
             children: <Widget>[
               const Text(
                 'USERNAME:',
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.black,
                 ),
               ),
               Text(
-                '$person.username',
-                textAlign: TextAlign.center,
+                person.username,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 12,
@@ -44,15 +42,13 @@ class FullCache extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(top: 10)),
               const Text(
                 'Email:',
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.black,
                 ),
               ),
               Text(
-                '$person.email',
-                textAlign: TextAlign.center,
+                person.email,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 12,

@@ -19,9 +19,8 @@ class DashboardPage extends StatelessWidget {
 
   BlocProvider<PersonBloc> buildBody(BuildContext context) {
     // Size size = MediaQuery.of(context).size;
-    return BlocProvider<PersonBloc>(
-      create: (context) => sl<PersonBloc>(),
-      lazy: false,
+    return BlocProvider<PersonBloc>.value(
+      value: sl<PersonBloc>(),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[

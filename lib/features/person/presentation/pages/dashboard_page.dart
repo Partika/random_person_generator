@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:random_person_generator/features/person/domain/entities/person.dart';
 import 'package:rive/rive.dart';
 
 import '../../../../injection_container.dart';
@@ -65,7 +64,6 @@ class DashboardPage extends StatelessWidget {
               ),
               child: const Padding(
                 padding: EdgeInsets.only(top: 5, bottom: 5),
-                // TODO: verificar se te pessoa na cache
                 child: IsPersonInCache(),
               ),
             ),

@@ -68,11 +68,6 @@ class DashboardPage extends StatelessWidget {
 
   void isCacheEmpty(BuildContext context, PersonState state) {
     if (state is EmptyState) {
-      showDialog(
-          context: context,
-          builder: (context) => const AlertDialog(
-                title: Text('Criando pessoa.'),
-              ));
       addRandom(context);
     }
     Navigator.push(
@@ -99,6 +94,8 @@ class IsPersonInCache extends StatelessWidget {
       builder: (context, state) {
         if (state is EmptyState) {
           return const EmptyCache();
+        } else if (state is LoadingState) {
+          return const LoadingWidget();
         } else if (state is LoadedState) {
           return FullCache(person: state.person);
         } else if (state is ErrorState) {

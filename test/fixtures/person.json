@@ -50,9 +50,9 @@
         "value": "44 280385 M 910"
       },
       "picture": {
-        "large": "https://randomuser.me/api/portraits/women/29.jpg",
+        "large": "Test Pic Link",
         "medium": "Test Pic Link",
-        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/29.jpg"
+        "thumbnail": "Test Pic Link"
       },
       "nat": "Test Nat"
     }

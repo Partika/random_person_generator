@@ -50,7 +50,7 @@ class PersonModel extends Person {
       age: json['results'][0]['dob']['age'],
       phone: json['results'][0]['phone'],
       cell: json['results'][0]['cell'],
-      picture: json['results'][0]['picture']['medium'],
+      picture: json['results'][0]['picture']['large'],
     );
   }
 

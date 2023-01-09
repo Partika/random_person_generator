@@ -55,6 +55,7 @@ class DashboardPage extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
+              // TODO: verificar se te pessoa na cache
               child: Row(
                 children: <Widget>[
                   ClipRRect(

@@ -28,7 +28,7 @@ class FullCache extends StatelessWidget {
                 'USERNAME:',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black,
+                  color: Color(0xFF6C6C6C),
                 ),
               ),
               Text(
@@ -44,7 +44,7 @@ class FullCache extends StatelessWidget {
                 'Email:',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.black,
+                  color: Color(0xFF6C6C6C),
                 ),
               ),
               Text(

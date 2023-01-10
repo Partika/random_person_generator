@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rive/rive.dart';
 
-import '../../../../injection_container.dart';
 import '../bloc/person/person_bloc.dart';
 import '../widgets/widgets.dart';
 import 'person_page.dart';

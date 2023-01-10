@@ -1,8 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../injection_container.dart';
 import '../../domain/entities/person.dart';
 import '../bloc/person/person_bloc.dart';
 import '../widgets/widgets.dart';
@@ -78,7 +76,7 @@ class PersonBody extends StatelessWidget {
                   Text('$person.age YEARS'),
                 ],
               ),
-              Padding(padding: EdgeInsets.only(left: 100)),
+              const Padding(padding: EdgeInsets.only(left: 100)),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

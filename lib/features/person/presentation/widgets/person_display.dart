@@ -21,7 +21,6 @@ class PersonDisplay extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Text(
-              // TODO: resto das informacoes
               person.phone,
               style: const TextStyle(fontSize: 25),
               textAlign: TextAlign.center,

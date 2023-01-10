@@ -22,23 +22,33 @@ class PersonPage extends StatelessWidget {
   Widget buildBody(BuildContext context) {
     return BlocBuilder<PersonBloc, PersonState>(
       builder: (context, state) {
-        return Column(
-          children: const <Widget>[
-            PersonHeader(),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            PersonBody(),
-          ],
-        );
+        if (state is LoadedState) {
+          return Column(
+            children: <Widget>[
+              PersonHeader(
+                person: state.person,
+              ),
+              const Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              PersonBody(
+                person: state.person,
+              ),
+            ],
+          );
+        } else {
+          return const Text('Como você chegou aqui?');
+        }
       },
     );
   }
 }
 
 class PersonBody extends StatelessWidget {
+  final Person person;
   const PersonBody({
     Key? key,
+    required this.person,
   }) : super(key: key);
 
   @override
@@ -55,17 +65,17 @@ class PersonBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('NAME:'),
-          Text('NAME'),
-          Padding(padding: EdgeInsets.only(top: 10)),
+          const Text('NAME:'),
+          Text(person.nameFirst + person.nameLast),
+          const Padding(padding: EdgeInsets.only(top: 10)),
           Row(
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  Text('AGE:'),
-                  Text('AGE YEARS'),
+                  const Text('AGE:'),
+                  Text('$person.age YEARS'),
                 ],
               ),
               Padding(padding: EdgeInsets.only(left: 100)),
@@ -73,33 +83,33 @@ class PersonBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  Text('BIRTH DATE:'),
-                  Text('BIRTH DATE'),
+                  const Text('BIRTH DATE:'),
+                  Text(person.dateOfBirth),
                 ],
               ),
             ],
           ),
-          Padding(padding: EdgeInsets.only(top: 10)),
-          Text('EMAIL:'),
-          Text('EMAIL'),
-          Padding(padding: EdgeInsets.only(top: 10)),
+          const Padding(padding: EdgeInsets.only(top: 10)),
+          const Text('EMAIL:'),
+          Text(person.email),
+          const Padding(padding: EdgeInsets.only(top: 10)),
           Row(
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  Text('PHONE:'),
-                  Text('PHONE'),
+                  const Text('PHONE:'),
+                  Text(person.phone),
                 ],
               ),
-              Padding(padding: EdgeInsets.only(left: 100)),
+              const Padding(padding: EdgeInsets.only(left: 100)),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  Text('CELL:'),
-                  Text('CELL'),
+                  const Text('CELL:'),
+                  Text(person.cell),
                 ],
               ),
             ],
@@ -111,8 +121,10 @@ class PersonBody extends StatelessWidget {
 }
 
 class PersonHeader extends StatelessWidget {
+  final Person person;
   const PersonHeader({
     Key? key,
+    required this.person,
   }) : super(key: key);
 
   @override
@@ -150,18 +162,18 @@ class PersonHeader extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: SizedBox.fromSize(
                   size: const Size.fromRadius(60),
-                  child: const Placeholder(),
+                  child: Image.network(person.picture),
                 ),
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'USERNAME, AGE',
-                style: TextStyle(
+                person.username + ', $person.age',
+                style: const TextStyle(
                   fontSize: 20,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -169,13 +181,13 @@ class PersonHeader extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'email',
-                style: TextStyle(
+                person.email,
+                style: const TextStyle(
                   fontSize: 20,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

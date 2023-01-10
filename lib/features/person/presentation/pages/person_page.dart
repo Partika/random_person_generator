@@ -32,6 +32,23 @@ class PersonPage extends StatelessWidget {
               PersonBody(
                 person: state.person,
               ),
+              const Padding(
+                padding: EdgeInsets.all(80),
+              ),
+              const PersonControls(),
+              const Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              BottomNavigationBar(items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.account_box_outlined),
+                  label: 'INFO',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.map_sharp),
+                  label: 'LOCATION',
+                ),
+              ])
             ],
           );
         } else {

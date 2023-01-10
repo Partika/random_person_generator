@@ -12,6 +12,8 @@ import 'package:random_person_generator/features/person/domain/entities/person.d
     as _i7;
 import 'package:random_person_generator/features/person/domain/repositories/person_repository.dart'
     as _i2;
+import 'package:random_person_generator/features/person/domain/usecases/delete_person.dart'
+    as _i9;
 import 'package:random_person_generator/features/person/domain/usecases/get_random_person.dart'
     as _i4;
 
@@ -48,4 +50,24 @@ class MockGetRandomPerson extends _i1.Mock implements _i4.GetRandomPerson {
               returnValue: Future<_i3.Either<_i6.Failure, _i7.Person>>.value(
                   _FakeEither_1<_i6.Failure, _i7.Person>()))
           as _i5.Future<_i3.Either<_i6.Failure, _i7.Person>>);
+}
+
+/// A class which mocks [DeletePerson].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDeletePerson extends _i1.Mock implements _i9.DeletePerson {
+  MockDeletePerson() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.PersonRepository get randomPersonRepository =>
+      (super.noSuchMethod(Invocation.getter(#randomPersonRepository),
+          returnValue: _FakePersonRepository_0()) as _i2.PersonRepository);
+  @override
+  _i5.Future<_i3.Either<_i6.Failure, void>> call(_i8.NoParams? params) =>
+      (super.noSuchMethod(Invocation.method(#call, [params]),
+              returnValue: Future<_i3.Either<_i6.Failure, void>>.value(
+                  _FakeEither_1<_i6.Failure, void>()))
+          as _i5.Future<_i3.Either<_i6.Failure, void>>);
 }

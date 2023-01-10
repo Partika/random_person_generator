@@ -20,5 +20,6 @@ class PersonControls extends StatelessWidget {
 
   void deletePerson(BuildContext context) {
     BlocProvider.of<PersonBloc>(context).add(DeletePersonEvent());
+    Navigator.pop(context);
   }
 }

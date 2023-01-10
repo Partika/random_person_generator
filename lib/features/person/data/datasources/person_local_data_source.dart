@@ -13,6 +13,8 @@ abstract class PersonLocalDataSource {
   Future<PersonModel> getlastPerson();
 
   Future<void> cachePerson(PersonModel personToCache);
+
+  Future<void> deletePerson();
 }
 
 const cachedPerson = 'CACHED_PERSON';
@@ -39,5 +41,10 @@ class PersonLocalDataSourceImpl implements PersonLocalDataSource {
       jsonEncode(personToCache.toJson()),
     );
     return Future<void>.value();
+  }
+
+  @override
+  Future<void> deletePerson() {
+    return sharedPreferences.clear();
   }
 }

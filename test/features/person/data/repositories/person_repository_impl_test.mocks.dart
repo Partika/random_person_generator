@@ -74,4 +74,9 @@ class MockPersonLocalDataSource extends _i1.Mock
       (super.noSuchMethod(Invocation.method(#cachePerson, [personToCache]),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
+  @override
+  _i4.Future<void> deletePerson() =>
+      (super.noSuchMethod(Invocation.method(#deletePerson, []),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
 }

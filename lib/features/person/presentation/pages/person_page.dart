@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/entities/person.dart';
 import '../bloc/person/person_bloc.dart';
 import '../widgets/widgets.dart';
 

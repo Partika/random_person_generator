@@ -39,7 +39,8 @@ class MockPersonRepository extends _i1.Mock implements _i3.PersonRepository {
                   _FakeEither_0<_i5.Failure, _i6.Person>()))
           as _i4.Future<_i2.Either<_i5.Failure, _i6.Person>>);
   @override
-  void deletePerson() =>
-      super.noSuchMethod(Invocation.method(#deletePerson, []),
-          returnValueForMissingStub: null);
+  _i4.Future<void> deletePerson() =>
+      (super.noSuchMethod(Invocation.method(#deletePerson, []),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
 }

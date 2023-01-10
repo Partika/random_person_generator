@@ -20,8 +20,8 @@ class PersonRepositoryImpl implements PersonRepository {
   });
 
   @override
-  void deletePerson() {
-    // TODO: implement deleteRandomPerson
+  Future<void> deletePerson() {
+    return localDataSource.deletePerson();
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:random_person_generator/features/person/domain/usecases/delete_person.dart';
 
 import '../../../../../core/error/failures.dart';
 import '../../../../../core/usecases/usecase.dart';
@@ -14,9 +15,13 @@ const String cacheFailureMessage = 'Cache Failure';
 
 class PersonBloc extends Bloc<PersonEvent, PersonState> {
   final GetRandomPerson getRandomPerson;
+  final DeletePerson deletePerson;
 
-  PersonBloc({required GetRandomPerson random})
-      : getRandomPerson = random,
+  PersonBloc({
+    required GetRandomPerson random,
+    required DeletePerson delete,
+  })  : getRandomPerson = random,
+        deletePerson = delete,
         super(EmptyState()) {
     on<PersonEvent>((event, emit) async {
       if (event is GetRandomPersonEvent) {
@@ -26,6 +31,10 @@ class PersonBloc extends Bloc<PersonEvent, PersonState> {
           (failure) => emit(ErrorState(message: _mapFailureToMessage(failure))),
           (person) => emit(LoadedState(person: person)),
         );
+      }
+      if (event is DeletePersonEvent) {
+        await deletePerson(NoParams());
+        emit(EmptyState());
       }
     });
   }

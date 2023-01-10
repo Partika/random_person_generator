@@ -6,6 +6,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:random_person_generator/core/error/failures.dart';
 import 'package:random_person_generator/core/usecases/usecase.dart';
 import 'package:random_person_generator/features/person/domain/entities/person.dart';
+import 'package:random_person_generator/features/person/domain/usecases/delete_person.dart';
 import 'package:random_person_generator/features/person/domain/usecases/get_random_person.dart';
 import 'package:random_person_generator/features/person/presentation/bloc/person/person_bloc.dart';
 
@@ -16,14 +17,16 @@ import 'person_bloc_test.mocks.dart';
 //   MockPersonBloc({random}) : super(random: random);
 // }
 
-@GenerateMocks([GetRandomPerson])
+@GenerateMocks([GetRandomPerson, DeletePerson])
 void main() {
   late PersonBloc bloc;
   late MockGetRandomPerson mockGetRandomPerson;
+  late MockDeletePerson mockDeletePerson;
 
   setUp(() {
     mockGetRandomPerson = MockGetRandomPerson();
-    bloc = PersonBloc(random: mockGetRandomPerson);
+    mockDeletePerson = MockDeletePerson();
+    bloc = PersonBloc(random: mockGetRandomPerson, delete: mockDeletePerson);
   });
 
   blocTest(

@@ -8,6 +8,7 @@ import 'features/person/data/datasources/person_local_data_source.dart';
 import 'features/person/data/datasources/person_remote_data_source.dart';
 import 'features/person/data/repositories/person_repository_impl.dart';
 import 'features/person/domain/repositories/person_repository.dart';
+import 'features/person/domain/usecases/delete_person.dart';
 import 'features/person/domain/usecases/get_random_person.dart';
 import 'features/person/presentation/bloc/person/person_bloc.dart';
 
@@ -17,10 +18,11 @@ final sl = GetIt.instance;
 Future<void> init() async {
   // Features - Person
   //    Bloc
-  sl.registerFactory(() => PersonBloc(random: sl()));
+  sl.registerFactory(() => PersonBloc(random: sl(), delete: sl()));
 
   //    Usecases
   sl.registerLazySingleton(() => GetRandomPerson(sl()));
+  sl.registerLazySingleton(() => DeletePerson(sl()));
 
   //    Repositories
   sl.registerLazySingleton<PersonRepository>(() => PersonRepositoryImpl(

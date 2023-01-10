@@ -39,16 +39,20 @@ class PersonPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(10),
               ),
-              BottomNavigationBar(items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.account_box_outlined),
-                  label: 'INFO',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.map_sharp),
-                  label: 'LOCATION',
-                ),
-              ])
+              BottomNavigationBar(
+                selectedItemColor: const Color(0xFF8200D1),
+                onTap: (int num) => {},
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.account_box_outlined),
+                    label: 'INFO',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.map_sharp),
+                    label: 'LOCATION',
+                  ),
+                ],
+              )
             ],
           );
         } else {

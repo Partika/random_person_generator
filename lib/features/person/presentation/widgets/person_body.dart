@@ -28,7 +28,13 @@ class PersonBody extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Color(0xFFFFFDD4),
         borderRadius: BorderRadius.all(Radius.circular(10)),
-        boxShadow: [BoxShadow(blurRadius: 10)],
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5,
+            offset: Offset(0, 5),
+            color: Color(0x88000000),
+          )
+        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),

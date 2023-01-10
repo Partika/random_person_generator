@@ -73,7 +73,7 @@ class PersonBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
                   const Text('AGE:'),
-                  Text('$person.age YEARS'),
+                  Text('${person.age} YEARS'),
                 ],
               ),
               const Padding(padding: EdgeInsets.only(left: 100)),
@@ -170,7 +170,7 @@ class PersonHeader extends StatelessWidget {
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                person.username + ', $person.age',
+                person.username + ', ${person.age}',
                 style: const TextStyle(
                   fontSize: 20,
                   color: Colors.white,

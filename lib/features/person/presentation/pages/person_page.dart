@@ -35,12 +35,23 @@ class PersonPage extends StatelessWidget {
             ],
           );
         } else {
-          return const Text('Como você chegou aqui?');
+          return const LoadingWidget();
         }
       },
     );
   }
 }
+
+const TextStyle fieldNameStyle = TextStyle(
+  fontSize: 12,
+  color: Color(0xFF6C6C6C),
+  fontWeight: FontWeight.bold,
+);
+const TextStyle fieldContentStyle = TextStyle(
+  fontSize: 16,
+  color: Color(0xFF000000),
+  fontWeight: FontWeight.bold,
+);
 
 class PersonBody extends StatelessWidget {
   final Person person;
@@ -63,8 +74,14 @@ class PersonBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text('NAME:'),
-          Text(person.nameFirst + person.nameLast),
+          const Text(
+            'NAME:',
+            style: fieldNameStyle,
+          ),
+          Text(
+            person.nameFirst + ' ' + person.nameLast,
+            style: fieldContentStyle,
+          ),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Row(
             children: <Widget>[
@@ -72,8 +89,14 @@ class PersonBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  const Text('AGE:'),
-                  Text('${person.age} YEARS'),
+                  const Text(
+                    'AGE:',
+                    style: fieldNameStyle,
+                  ),
+                  Text(
+                    '${person.age} YEARS',
+                    style: fieldContentStyle,
+                  ),
                 ],
               ),
               const Padding(padding: EdgeInsets.only(left: 100)),
@@ -81,15 +104,27 @@ class PersonBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  const Text('BIRTH DATE:'),
-                  Text(person.dateOfBirth),
+                  const Text(
+                    'BIRTH DATE:',
+                    style: fieldNameStyle,
+                  ),
+                  Text(
+                    person.dateOfBirth,
+                    style: fieldContentStyle,
+                  ),
                 ],
               ),
             ],
           ),
           const Padding(padding: EdgeInsets.only(top: 10)),
-          const Text('EMAIL:'),
-          Text(person.email),
+          const Text(
+            'EMAIL:',
+            style: fieldNameStyle,
+          ),
+          Text(
+            person.email,
+            style: fieldContentStyle,
+          ),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Row(
             children: <Widget>[
@@ -97,8 +132,14 @@ class PersonBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  const Text('PHONE:'),
-                  Text(person.phone),
+                  const Text(
+                    'PHONE:',
+                    style: fieldNameStyle,
+                  ),
+                  Text(
+                    person.phone,
+                    style: fieldContentStyle,
+                  ),
                 ],
               ),
               const Padding(padding: EdgeInsets.only(left: 100)),
@@ -106,8 +147,14 @@ class PersonBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Text>[
-                  const Text('CELL:'),
-                  Text(person.cell),
+                  const Text(
+                    'CELL:',
+                    style: fieldNameStyle,
+                  ),
+                  Text(
+                    person.cell,
+                    style: fieldContentStyle,
+                  ),
                 ],
               ),
             ],

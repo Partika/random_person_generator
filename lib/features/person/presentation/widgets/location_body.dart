@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:map_launcher/map_launcher.dart';
 
 import '../../domain/entities/person.dart';
 import 'widgets.dart';
@@ -48,7 +49,14 @@ class LocationBody extends StatelessWidget {
               child: Center(
                 child: FloatingActionButton.extended(
                   backgroundColor: const Color(0xFF9800F4),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await MapLauncher.showMarker(
+                      mapType: MapType.google,
+                      coords: Coords(double.parse(person.locationLatitude),
+                          double.parse(person.locationLongitude)),
+                      title: '?',
+                    );
+                  },
                   icon: const Icon(Icons.map_sharp),
                   label: const Text('OPEN ON MAP'),
                 ),

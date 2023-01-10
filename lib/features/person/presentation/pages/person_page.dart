@@ -111,7 +111,12 @@ class PersonBody extends StatelessWidget {
                       style: fieldNameStyle,
                     ),
                     Text(
-                      person.dateOfBirth,
+                      // TODO: testar se nao tem a possibilidade do mes ser 1 ao invez de 01
+                      (person.dateOfBirth.substring(8, 10) +
+                          '/' +
+                          person.dateOfBirth.substring(5, 7) +
+                          '/' +
+                          person.dateOfBirth.substring(0, 4)),
                       style: fieldContentStyle,
                     ),
                   ],

@@ -23,6 +23,8 @@ class FullCache extends StatelessWidget {
         SizedBox(
           width: 200,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const Text(
                 'USERNAME:',
@@ -32,7 +34,7 @@ class FullCache extends StatelessWidget {
                 ),
               ),
               Text(
-                person.username,
+                person.username.toUpperCase(),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 12,
@@ -48,7 +50,7 @@ class FullCache extends StatelessWidget {
                 ),
               ),
               Text(
-                person.email,
+                person.email.toUpperCase(),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 12,

@@ -50,7 +50,7 @@ class PersonBody extends StatelessWidget {
               (person.nameFirst + ' ' + person.nameLast).toUpperCase(),
               style: fieldContentStyle,
             ),
-            const Padding(padding: EdgeInsets.only(top: 10)),
+            const SpaceBetweenLines(),
             Row(
               children: <Widget>[
                 Column(
@@ -90,7 +90,7 @@ class PersonBody extends StatelessWidget {
                 ),
               ],
             ),
-            const Padding(padding: EdgeInsets.only(top: 10)),
+            const SpaceBetweenLines(),
             const Text(
               'EMAIL:',
               style: fieldNameStyle,
@@ -99,7 +99,7 @@ class PersonBody extends StatelessWidget {
               person.email.toUpperCase(),
               style: fieldContentStyle,
             ),
-            const Padding(padding: EdgeInsets.only(top: 10)),
+            const SpaceBetweenLines(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -137,5 +137,16 @@ class PersonBody extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class SpaceBetweenLines extends StatelessWidget {
+  const SpaceBetweenLines({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(padding: EdgeInsets.only(top: 10));
   }
 }

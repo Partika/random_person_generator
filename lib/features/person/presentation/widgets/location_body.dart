@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:map_launcher/map_launcher.dart';
 
 import '../../domain/entities/person.dart';
@@ -57,7 +58,7 @@ class LocationBody extends StatelessWidget {
                       title: '?',
                     );
                   },
-                  icon: const Icon(Icons.map_sharp),
+                  icon: SvgPicture.asset('assets/icons/map_search_white.svg'),
                   label: const Text('OPEN ON MAP'),
                 ),
               ),

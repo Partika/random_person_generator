@@ -13,6 +13,20 @@ class _PersonPageState extends State<PersonPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xFFF6F6F6),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.adaptive.arrow_back,
+              size: 30,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        extendBodyBehindAppBar: true,
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: const Color(0xFF8200D1),
           onTap: (int index) {

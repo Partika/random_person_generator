@@ -52,6 +52,7 @@ class PersonBody extends StatelessWidget {
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -67,7 +68,6 @@ class PersonBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Padding(padding: EdgeInsets.only(left: 100)),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,6 +99,7 @@ class PersonBody extends StatelessWidget {
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -114,7 +115,6 @@ class PersonBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Padding(padding: EdgeInsets.only(left: 100)),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,

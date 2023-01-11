@@ -31,7 +31,7 @@ dependencies:
   map_launcher: ^2.0.0
 
   cupertino_icons: ^1.0.2
-  flutter_svg: ^1.0.3
+  material_design_icons_flutter: ^6.0.7096
 
 dev_dependencies:
   flutter_test:

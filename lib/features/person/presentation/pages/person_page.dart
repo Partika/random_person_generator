@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../widgets/widgets.dart';
 
 class PersonPage extends StatefulWidget {
@@ -39,18 +39,13 @@ class _PersonPageState extends State<PersonPage> {
             });
           },
           currentIndex: currentPageIndex,
-          items: <BottomNavigationBarItem>[
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                  'assets/icons/card_account_details_outline.svg'),
-              activeIcon: SvgPicture.asset(
-                  'assets/icons/card_account_details_outline_purple.svg'),
+              icon: Icon(MdiIcons.cardAccountDetailsOutline),
               label: 'INFO',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/icons/map_search.svg'),
-              activeIcon:
-                  SvgPicture.asset('assets/icons/map_search_purple.svg'),
+              icon: Icon(MdiIcons.mapSearch),
               label: 'LOCATION',
             ),
           ],

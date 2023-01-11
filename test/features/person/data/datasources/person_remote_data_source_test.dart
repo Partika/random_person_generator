@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
-import 'package:tarefa_2/features/person/data/models/person_model.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
+import 'package:random_person_generator/features/person/data/datasources/person_remote_data_source.dart';
+import 'package:random_person_generator/features/person/data/models/person_model.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 import 'person_remote_data_source_test.mocks.dart';
@@ -23,7 +23,7 @@ void main() {
 
   void setUpMockHttpClientSucces200() {
     when(mockDio.get(any)).thenAnswer((_) async => Response(
-        data: fixture('person.json'),
+        data: jsonDecode(fixture('person.json')),
         requestOptions: RequestOptions(path: ''),
         statusCode: 200));
   }

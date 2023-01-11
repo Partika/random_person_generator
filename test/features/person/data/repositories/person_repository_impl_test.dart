@@ -1,15 +1,15 @@
 import 'package:mockito/annotations.dart';
-import 'package:tarefa_2/core/network/network_info.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_remote_data_source.dart';
+import 'package:random_person_generator/core/network/network_info.dart';
+import 'package:random_person_generator/features/person/data/datasources/person_local_data_source.dart';
+import 'package:random_person_generator/features/person/data/datasources/person_remote_data_source.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
-import 'package:tarefa_2/core/error/failures.dart';
-import 'package:tarefa_2/features/person/data/models/person_model.dart';
-import 'package:tarefa_2/features/person/data/repositories/person_repository_impl.dart';
-import 'package:tarefa_2/features/person/domain/entities/person.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
+import 'package:random_person_generator/core/error/failures.dart';
+import 'package:random_person_generator/features/person/data/models/person_model.dart';
+import 'package:random_person_generator/features/person/data/repositories/person_repository_impl.dart';
+import 'package:random_person_generator/features/person/domain/entities/person.dart';
 import './person_repository_impl_test.mocks.dart';
 
 /*
@@ -78,15 +78,15 @@ void main() {
         locationStreet: 'Test LStreet',
         locationNumber: 123,
         locationCity: 'Test LCity',
-        locationState: 'Test LState',
-        locationCountry: 'Test LCountry',
+        locationLatitude: '123',
+        locationLongitude: '123',
         email: 'Test Email',
+        username: 'Test Username',
         dateOfBirth: 'Test DoB',
         age: 123,
         phone: 'Test Phone',
         cell: 'Test Cell',
         picture: 'Test Pic Link',
-        nat: 'Test Nat',
       );
       const Person tPerson = tPersonModel;
       test(
@@ -181,6 +181,21 @@ void main() {
               expect(result, equals(Left(CacheFailure())));
             },
           );
+        },
+      );
+    },
+  );
+
+  group(
+    'deletePerson',
+    () {
+      test(
+        'should return cache failure when trying to load deleted cached data',
+        () async {
+          // act
+          await repository.deletePerson();
+          // assert
+          verify(mockLocalDataSource.deletePerson());
         },
       );
     },

@@ -1,4 +1,4 @@
-package com.example.tarefa_2
+package com.example.random_person_generator
 
 import io.flutter.embedding.android.FlutterActivity
 

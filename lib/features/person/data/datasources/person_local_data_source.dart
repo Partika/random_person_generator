@@ -1,6 +1,7 @@
 import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
 
 import '../models/person_model.dart';
 
@@ -12,6 +13,8 @@ abstract class PersonLocalDataSource {
   Future<PersonModel> getlastPerson();
 
   Future<void> cachePerson(PersonModel personToCache);
+
+  Future<void> deletePerson();
 }
 
 const cachedPerson = 'CACHED_PERSON';
@@ -38,5 +41,10 @@ class PersonLocalDataSourceImpl implements PersonLocalDataSource {
       jsonEncode(personToCache.toJson()),
     );
     return Future<void>.value();
+  }
+
+  @override
+  Future<void> deletePerson() {
+    return sharedPreferences.clear();
   }
 }

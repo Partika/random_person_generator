@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
 
-import 'package:tarefa_2/features/person/data/models/person_model.dart';
+import 'package:random_person_generator/features/person/data/models/person_model.dart';
 
 abstract class PersonRemoteDataSource {
   /// Calls the http://randomuser.me/api/ endpoint.

@@ -10,17 +10,16 @@ class PersonControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ElevatedButton(
-          onPressed: () => addRandom(context),
-          child: const Text('Nova Pessoa'),
-        ),
-      ],
+    return FloatingActionButton.extended(
+      backgroundColor: const Color(0xFFFD6F6F),
+      onPressed: () => deletePerson(context),
+      icon: const Icon(Icons.delete),
+      label: const Text('DELETE ACCOUNT'),
     );
   }
 
-  void addRandom(BuildContext context) {
-    BlocProvider.of<PersonBloc>(context).add(GetRandomPersonEvent());
+  void deletePerson(BuildContext context) {
+    BlocProvider.of<PersonBloc>(context).add(DeletePersonEvent());
+    Navigator.pop(context);
   }
 }

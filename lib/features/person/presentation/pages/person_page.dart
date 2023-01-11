@@ -1,53 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../injection_container.dart';
-import '../bloc/person/person_bloc.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../widgets/widgets.dart';
 
-class PersonPage extends StatelessWidget {
+class PersonPage extends StatefulWidget {
   const PersonPage({Key? key}) : super(key: key);
 
   @override
+  State<PersonPage> createState() => _PersonPageState();
+}
+
+class _PersonPageState extends State<PersonPage> {
+  int currentPageIndex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pessoa Aleatoria'),
-      ),
-      body: SingleChildScrollView(child: buildBody(context)),
-    );
-  }
-
-  BlocProvider<PersonBloc> buildBody(BuildContext context) {
-    return BlocProvider<PersonBloc>(
-      create: (context) => sl<PersonBloc>(),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 10.0),
-              BlocBuilder<PersonBloc, PersonState>(
-                builder: (context, state) {
-                  if (state is EmptyState) {
-                    return const MessageDisplay(message: 'Nenhuma Pessoa!');
-                  } else if (state is LoadingState) {
-                    return const LoadingWidget();
-                  } else if (state is LoadedState) {
-                    return PersonDisplay(person: state.person);
-                  } else if (state is ErrorState) {
-                    return MessageDisplay(message: state.message);
-                  } else {
-                    return const Text('Algo deu muito errado!');
-                  }
-                },
-              ),
-              const SizedBox(height: 20.0),
-              const PersonControls(),
-            ],
+        backgroundColor: const Color(0xFFF6F6F6),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.adaptive.arrow_back,
+              size: 30,
+              color: Colors.white,
+            ),
           ),
         ),
-      ),
-    );
+        extendBodyBehindAppBar: true,
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          selectedItemColor: const Color(0xFF8200D1),
+          unselectedItemColor: Colors.black,
+          onTap: (int index) {
+            setState(() {
+              currentPageIndex = index;
+            });
+          },
+          currentIndex: currentPageIndex,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(MdiIcons.cardAccountDetailsOutline),
+              label: 'INFO',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(MdiIcons.mapSearch),
+              label: 'LOCATION',
+            ),
+          ],
+        ),
+        body: const <Widget>[
+          PersonInfo(),
+          PersonLocation(),
+        ][currentPageIndex]);
   }
 }

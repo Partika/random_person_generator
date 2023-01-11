@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tarefa_2/features/person/presentation/pages/person_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:random_person_generator/features/person/presentation/bloc/person/person_bloc.dart';
+import 'package:random_person_generator/features/person/presentation/pages/dashboard_page.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -14,12 +16,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Random Person App',
-      theme: ThemeData(
-        primaryColor: Colors.black,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => di.sl<PersonBloc>(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Random Person App',
+        theme: ThemeData(
+          backgroundColor: const Color(0xFFF6F6F6),
+          fontFamily: 'Inter',
+        ),
+        // home: const PersonPage(),
+        home: const DashboardPage(),
       ),
-      home: const PersonPage(),
     );
   }
 }

@@ -4,9 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tarefa_2/core/error/exceptions.dart';
-import 'package:tarefa_2/features/person/data/datasources/person_local_data_source.dart';
-import 'package:tarefa_2/features/person/data/models/person_model.dart';
+import 'package:random_person_generator/core/error/exceptions.dart';
+import 'package:random_person_generator/features/person/data/datasources/person_local_data_source.dart';
+import 'package:random_person_generator/features/person/data/models/person_model.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 import 'person_local_data_source_test.mocks.dart';
@@ -68,15 +68,15 @@ void main() {
         locationStreet: 'locationStreet',
         locationNumber: 123,
         locationCity: 'locationCity',
-        locationState: 'locationState',
-        locationCountry: 'locationCountry',
+        locationLatitude: '123',
+        locationLongitude: '123',
         email: 'email',
+        username: 'username',
         dateOfBirth: 'dateOfBirth',
         age: 123,
         phone: 'phone',
         cell: 'cell',
         picture: 'picture',
-        nat: 'nat',
       );
       test(
         'should call SharedPreferences to cache the data',
@@ -96,4 +96,19 @@ void main() {
       );
     },
   );
+
+  group('deletePerson', () {
+    test(
+      'should call SharedPreferences to cache the data',
+      () async {
+        // assert
+        when(mockSharedPreferences.clear())
+            .thenAnswer((_) async => Future<bool>.value(true));
+        // act
+        dataSource.deletePerson();
+        // assert
+        verify(mockSharedPreferences.clear());
+      },
+    );
+  });
 }

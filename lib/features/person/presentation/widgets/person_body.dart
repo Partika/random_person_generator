@@ -37,7 +37,7 @@ class PersonBody extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.fromLTRB(15.0, 15.0, 30.0, 15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +52,6 @@ class PersonBody extends StatelessWidget {
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -68,6 +67,9 @@ class PersonBody extends StatelessWidget {
                     ),
                   ],
                 ),
+                Padding(
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width / 3)),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,

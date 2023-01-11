@@ -47,7 +47,7 @@ flutter:
   assets:
     - assets/animations/
     - assets/images/
-    - assets/icons/
+    
   fonts:
     - family: Inter
       fonts:

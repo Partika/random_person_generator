@@ -55,7 +55,8 @@ class LocationBody extends StatelessWidget {
                       mapType: MapType.google,
                       coords: Coords(double.parse(person.locationLatitude),
                           double.parse(person.locationLongitude)),
-                      title: '?',
+                      title: (person.locationStreet +
+                          ', ${person.locationNumber}'),
                     );
                   },
                   icon: const Icon(MdiIcons.mapSearch),

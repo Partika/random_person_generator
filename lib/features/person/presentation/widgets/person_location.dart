@@ -23,9 +23,7 @@ class PersonLocation extends StatelessWidget {
                 padding: EdgeInsets.all(10),
               ),
               LocationBody(person: state.person),
-              const Padding(
-                padding: EdgeInsets.all(80),
-              ),
+              const Spacer(),
               const PersonControls(),
             ],
           );

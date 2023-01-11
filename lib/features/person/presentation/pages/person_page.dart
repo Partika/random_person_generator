@@ -29,6 +29,8 @@ class _PersonPageState extends State<PersonPage> {
         ),
         extendBodyBehindAppBar: true,
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           selectedItemColor: const Color(0xFF8200D1),
           unselectedItemColor: Colors.black,
           onTap: (int index) {

@@ -25,9 +25,7 @@ class PersonInfo extends StatelessWidget {
               PersonBody(
                 person: state.person,
               ),
-              const Padding(
-                padding: EdgeInsets.all(80),
-              ),
+              const Spacer(),
               const PersonControls(),
             ],
           );

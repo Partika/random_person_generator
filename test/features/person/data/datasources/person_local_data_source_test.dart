@@ -96,4 +96,19 @@ void main() {
       );
     },
   );
+
+  group('deletePerson', () {
+    test(
+      'should call SharedPreferences to cache the data',
+      () async {
+        // assert
+        when(mockSharedPreferences.clear())
+            .thenAnswer((_) async => Future<bool>.value(true));
+        // act
+        dataSource.deletePerson();
+        // assert
+        verify(mockSharedPreferences.clear());
+      },
+    );
+  });
 }

@@ -83,6 +83,17 @@ void main() {
       ],
     );
 
+    blocTest<PersonBloc, PersonState>(
+      'should emit [EmptyEvent] when data is deleted.',
+      build: () {
+        when(mockDeletePerson(any))
+            .thenAnswer((_) async => Right(Future<void>.value()));
+        return bloc;
+      },
+      act: (bloc) => bloc.add(DeletePersonEvent()),
+      expect: () => [EmptyState()],
+    );
+
     group('Failures', () {
       blocTest<PersonBloc, PersonState>(
         'should emit [LoadingEvent, ErrorEvent] when getting data fails.',

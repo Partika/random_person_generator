@@ -185,4 +185,19 @@ void main() {
       );
     },
   );
+
+  group(
+    'deletePerson',
+    () {
+      test(
+        'should return cache failure when trying to load deleted cached data',
+        () async {
+          // act
+          await repository.deletePerson();
+          // assert
+          verify(mockLocalDataSource.deletePerson());
+        },
+      );
+    },
+  );
 }

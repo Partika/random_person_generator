@@ -27,9 +27,8 @@
       "phone": "Test Phone",
       "cell": "Test Cell",
       "picture": {
-        "medium": "Test Pic Link"
-      },
-      "nat": "Test Nat"
+        "large": "Test Pic Link"
+      }
     }
   ]
 }

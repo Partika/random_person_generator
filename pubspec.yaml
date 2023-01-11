@@ -46,3 +46,7 @@ flutter:
   assets:
     - assets/animations/
     - assets/images/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Bold.ttf

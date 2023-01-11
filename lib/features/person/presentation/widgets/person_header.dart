@@ -48,7 +48,6 @@ class PersonHeader extends StatelessWidget {
                 fontSize: 20,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Inter',
               ),
             ),
             Text(
@@ -57,7 +56,6 @@ class PersonHeader extends StatelessWidget {
                 fontSize: 20,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Inter',
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/widgets.dart';
 
 class PersonPage extends StatefulWidget {
@@ -29,19 +30,25 @@ class _PersonPageState extends State<PersonPage> {
         extendBodyBehindAppBar: true,
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: const Color(0xFF8200D1),
+          unselectedItemColor: Colors.black,
           onTap: (int index) {
             setState(() {
               currentPageIndex = index;
             });
           },
           currentIndex: currentPageIndex,
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_box_outlined),
+              icon: SvgPicture.asset(
+                  'assets/icons/card_account_details_outline.svg'),
+              activeIcon: SvgPicture.asset(
+                  'assets/icons/card_account_details_outline_purple.svg'),
               label: 'INFO',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.map_sharp),
+              icon: SvgPicture.asset('assets/icons/map_search.svg'),
+              activeIcon:
+                  SvgPicture.asset('assets/icons/map_search_purple.svg'),
               label: 'LOCATION',
             ),
           ],

@@ -19,14 +19,17 @@ class PersonHeader extends StatelessWidget {
           Color(0xFF9800F4),
           Color(0xFF5E138C),
         ]),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(10),
+          bottomLeft: Radius.circular(10),
+        ),
         boxShadow: [BoxShadow(blurRadius: 10)],
       ),
       child: Padding(
         padding: EdgeInsets.only(
           left: MediaQuery.of(context).size.width * 0.05,
           bottom: MediaQuery.of(context).size.height * 0.015,
-          top: MediaQuery.of(context).size.height * 0.1,
+          top: MediaQuery.of(context).size.height * 0.06,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

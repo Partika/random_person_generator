@@ -18,7 +18,8 @@ class LocationBody extends StatelessWidget {
       color: const Color(0xFFFFFDD4),
       elevation: 5.0,
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -40,8 +41,10 @@ class LocationBody extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: const Color(0xFF9800F4),
-                ),
+                    fixedSize: Size.infinite,
+                    primary: const Color(0xFF9800F4),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40))),
                 onPressed: () async {
                   await MapLauncher.showMarker(
                     mapType: MapType.google,

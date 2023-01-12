@@ -11,12 +11,24 @@ class PersonControls extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 5.0),
-      child: FloatingActionButton.extended(
-        backgroundColor: const Color(0xFFFD6F6F),
+      padding: const EdgeInsets.only(bottom: 15.0),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: const Color(0xFFFD6F6F),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          fixedSize: Size(MediaQuery.of(context).size.width / 2, 43),
+        ),
         onPressed: () => deletePerson(context),
-        icon: const Icon(Icons.delete),
-        label: const Text('DELETE ACCOUNT'),
+        child: Row(
+          children: const <Widget>[
+            Icon(Icons.delete),
+            Padding(
+              padding: EdgeInsets.only(left: 5.0),
+              child: Text('DELETE ACCOUNT'),
+            ),
+          ],
+        ),
       ),
     );
   }

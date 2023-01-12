@@ -14,20 +14,11 @@ class LocationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.95,
-      alignment: Alignment.topLeft,
-      decoration: const BoxDecoration(
-        color: Color(0xFFFFFDD4),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 5,
-            offset: Offset(0, 5),
-            color: Color(0x88000000),
-          )
-        ],
-      ),
+    return Card(
+      color: const Color(0xFFFFFDD4),
+      elevation: 5.0,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -47,20 +38,30 @@ class LocationBody extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: Center(
-                child: FloatingActionButton.extended(
-                  backgroundColor: const Color(0xFF9800F4),
-                  onPressed: () async {
-                    await MapLauncher.showMarker(
-                      mapType: MapType.google,
-                      coords: Coords(double.parse(person.locationLatitude),
-                          double.parse(person.locationLongitude)),
-                      title: (person.locationStreet +
-                          ', ${person.locationNumber}'),
-                    );
-                  },
-                  icon: const Icon(MdiIcons.mapSearch),
-                  label: const Text('OPEN ON MAP'),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xFF9800F4),
+                ),
+                onPressed: () async {
+                  await MapLauncher.showMarker(
+                    mapType: MapType.google,
+                    coords: Coords(double.parse(person.locationLatitude),
+                        double.parse(person.locationLongitude)),
+                    title:
+                        (person.locationStreet + ', ${person.locationNumber}'),
+                  );
+                },
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const <Widget>[
+                      Icon(MdiIcons.mapSearch),
+                      Padding(
+                        padding: EdgeInsets.only(left: 5),
+                        child: Text('OPEN ON MAP'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )

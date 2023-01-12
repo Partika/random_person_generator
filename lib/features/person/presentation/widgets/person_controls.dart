@@ -10,11 +10,14 @@ class PersonControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.extended(
-      backgroundColor: const Color(0xFFFD6F6F),
-      onPressed: () => deletePerson(context),
-      icon: const Icon(Icons.delete),
-      label: const Text('DELETE ACCOUNT'),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5.0),
+      child: FloatingActionButton.extended(
+        backgroundColor: const Color(0xFFFD6F6F),
+        onPressed: () => deletePerson(context),
+        icon: const Icon(Icons.delete),
+        label: const Text('DELETE ACCOUNT'),
+      ),
     );
   }
 

@@ -12,7 +12,24 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(child: buildBody(context)),
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        title: const Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: 15.0),
+            child: Text(
+              'FAKE PROFILE',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      ),
+      body: SafeArea(child: SingleChildScrollView(child: buildBody(context))),
     );
   }
 
@@ -28,19 +45,6 @@ class DashboardPage extends StatelessWidget {
           child: const RiveAnimation.asset(
             'assets/animations/background.riv',
             fit: BoxFit.fill,
-          ),
-        ),
-        Positioned(
-          top: 25,
-          child: Container(
-            alignment: Alignment.topCenter,
-            child: const Text(
-              'FAKE PROFILE',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-              ),
-            ),
           ),
         ),
         Positioned(

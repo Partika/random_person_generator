@@ -5,6 +5,4 @@ export '../widgets/full_cache.dart';
 export '../widgets/empty_cache.dart';
 export '../widgets/person_body.dart';
 export '../widgets/person_header.dart';
-export '../widgets/person_info.dart';
-export '../widgets/person_location.dart';
 export '../widgets/location_body.dart';

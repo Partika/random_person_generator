@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:random_person_generator/features/person/presentation/bloc/person/person_bloc.dart';
 import '../widgets/widgets.dart';
 
 class PersonPage extends StatefulWidget {
@@ -51,10 +53,30 @@ class _PersonPageState extends State<PersonPage> {
               ),
             ],
           ),
-          body: const <Widget>[
-            PersonInfo(),
-            PersonLocation(),
-          ][currentPageIndex]),
+          body: BlocBuilder<PersonBloc, PersonState>(
+            builder: (context, state) {
+              if (state is LoadedState) {
+                return Column(
+                  children: <Widget>[
+                    PersonHeader(
+                      person: state.person,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(10),
+                    ),
+                    <Widget>[
+                      PersonBody(person: state.person),
+                      LocationBody(person: state.person),
+                    ][currentPageIndex],
+                    const Spacer(),
+                    const PersonControls(),
+                  ],
+                );
+              } else {
+                return const LoadingWidget();
+              }
+            },
+          )),
     );
   }
 }

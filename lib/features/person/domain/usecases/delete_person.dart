@@ -11,6 +11,6 @@ class DeletePerson implements UseCase<void, NoParams> {
 
   @override
   Future<Either<Failure, void>> call(NoParams params) async {
-    return Right(randomPersonRepository.deletePerson());
+    return await randomPersonRepository.deletePerson();
   }
 }

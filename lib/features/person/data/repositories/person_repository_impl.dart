@@ -20,8 +20,13 @@ class PersonRepositoryImpl implements PersonRepository {
   });
 
   @override
-  Future<void> deletePerson() {
-    return localDataSource.deletePerson();
+  Future<Either<Failure, bool>> deletePerson() async {
+    try {
+      final bool result = await localDataSource.deletePerson();
+      return Right(result);
+    } on CacheException {
+      return Left(CacheFailure());
+    }
   }
 
   @override

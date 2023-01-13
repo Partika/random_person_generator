@@ -14,7 +14,7 @@ abstract class PersonLocalDataSource {
 
   Future<void> cachePerson(PersonModel personToCache);
 
-  Future<void> deletePerson();
+  Future<bool> deletePerson();
 }
 
 const cachedPerson = 'CACHED_PERSON';
@@ -44,7 +44,13 @@ class PersonLocalDataSourceImpl implements PersonLocalDataSource {
   }
 
   @override
-  Future<void> deletePerson() {
-    return sharedPreferences.clear();
+  Future<bool> deletePerson() async {
+    final bool result = await sharedPreferences.clear();
+
+    if (result) {
+      return Future.value(result);
+    } else {
+      throw CacheException('Não tem nada na cache!');
+    }
   }
 }

@@ -5,5 +5,5 @@ import '../entities/person.dart';
 
 abstract class PersonRepository {
   Future<Either<Failure, Person>> getRandomPerson();
-  Future<void> deletePerson();
+  Future<Either<Failure, bool>> deletePerson();
 }
